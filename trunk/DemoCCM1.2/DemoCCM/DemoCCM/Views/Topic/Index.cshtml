@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Concept.cshtml";
+    String levelID3 = ViewBag.levelID2 as String;
+    String topicID3 = ViewBag.topicID2 as String;
+}
+<article class="left_content">
+  
+        @{Html.RenderAction("_Concept_Topic_LevelPartial", "Topic", new { LevelID = levelID3, TopicID = topicID3});}
+       
+      
+ </article>
+
+@* Truyền ngầm giá trị từ Level/Topic_Level*@
+<div class="center_content">
+                <div class="space"></div>           
+                <div  class="center_title_bar">
+                   <div class="question">
+                      Câu hỏi trọng tâm 
+                     @Html.DropDownList("Question",(IEnumerable<SelectListItem>) ViewBag.cd)
+                </div>    
+                </div>
+    <div class="center_main_draw"></div>
+    <div  class="button_bottom">
+        <button>Hoàn Thành</button>
+        <button>Sửa</button>
+        <button>Đáp án</button>
+    </div>
+ </div>

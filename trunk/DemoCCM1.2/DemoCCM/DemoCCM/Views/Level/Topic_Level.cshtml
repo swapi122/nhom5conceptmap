@@ -1,0 +1,42 @@
+﻿@model List<DemoCCM.Models.TopicOfLevel>
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String a = "";
+   
+    
+}
+ <article class="center_content">
+     
+                <div class="space"></div>
+                <div class="center_title_bar">@ViewBag.name</div>
+                <div class="center_main_content">
+                    <ul id="thumbs">
+                    @foreach (var e in Model)
+                    {
+                        a = e.Level.LevelName;
+                        string name;
+
+                        if (e.Topic.TopicImage == null)
+                        {
+                            name = "no_image.png";
+                        }
+                        else {
+                            name = e.Topic.TopicImage;
+                            
+                        }
+                        <li>
+                            <a href="@Url.Action("Index","Topic",new{LevelID1=e.LevelID,topicId1=e.TopicID})"> @*idTopic=e.TopicID,*@
+                                 <img alt="@e.Topic.ToppicName"  src="~/Photos/concepts/@name" />
+                                 <div class="title_thumbs"></div>
+                                 <span class="titlebla">@e.Topic.ToppicName </span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                </div>
+ </article>
+
+
+

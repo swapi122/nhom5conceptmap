@@ -1,0 +1,201 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:500);
+/* 2f4b87 */
+/* 2f4b87 */
+/* #1f325d */
+/* Menu CSS */
+/*Menu cua NavBar*/
+ #cssmenu {
+    width: auto;
+}
+
+        #cssmenu ul {
+            background: #73ead1; /*Màu của ul*/
+            border-radius: 3px;
+            border: 1px solid #2b4479;
+            border: 1px solid #de0226;
+            -webkit-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            -o-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            -moz-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            -ms-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            margin-left:11px;
+            margin-right:11px;
+        }
+
+       #cssmenu ul > li > a:hover {
+                       background: #de0226;
+                       -webkit-box-shadow: inset 0 0 1px #ac011d;
+                        -o-box-shadow: inset 0 0 1px #ac011d;
+                        -moz-box-shadow: inset 0 0 1px #ac011d;
+                        -ms-box-shadow: inset 0 0 1px #ac011d;
+                        box-shadow: inset 0 0 1px #ac011d;
+                        -webkit-transition: all ease .3s;
+                        -o-transition: all ease .3s;
+                        -moz-transition: all ease .3s;
+                        -ms-transition: all ease .3s;
+                        transition: all ease .3s;
+                    }
+
+        #cssmenu > ul > li > ul {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+
+        #cssmenu > ul > li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+            position: absolute;
+            border-radius: 0 0 3px 3px;
+            -webkit-box-shadow: none;
+            -o-box-shadow: none;
+            -moz-box-shadow: none;
+            -ms-box-shadow: none;
+            box-shadow: none;
+        }
+           #cssmenu > ul > li > ul > li {
+                    left: 190px;
+                    top: 20px;
+                    width: 50px;
+                    height :30px;
+                }
+
+    #cssmenu > ul > li {
+         left: 190px;
+         top: 20px;
+         width: 200px;
+        height :40px;
+    }
+    /*Menu cua Menu*/
+    ul#menu {
+    font-size: 0.9em;
+    font-weight: 600;
+    margin: 0 0 5px;
+    padding: 0;
+    text-align: left;
+    width:1000px;
+}
+
+    ul#menu li {
+        display: inline;
+        list-style: none;
+        padding-left: 10px;
+      
+    }
+
+      
+    /*Box chứa NavBar bên Trái và Box chính giữa*/
+
+    .boxRSL,.boxRSR 
+{
+
+    border:1px solid #e2e2e2;
+     -webkit-border-radius:10px;/**/
+     background-color:rgba(255, 255, 255, 0.15);
+     padding:10px!important;
+     margin-left:5px;
+  
+}
+/*In bóng cho hộp*/
+.boxRSL
+{
+     -webkit-box-shadow: #e2e2e2 10px 0px 10px inset;
+}
+
+.boxRSR{
+     -webkit-box-shadow: #e2e2e2 -10px 0px 10px inset;   
+}
+/*Box menu*/
+.boxMenu
+{
+
+    border:1px solid #e2e2e2;
+     -webkit-border-radius:10px;/**/
+     background-color:#fff;
+     padding:7px!important;
+     padding-top:inherit;
+     margin-left:5px;
+}
+
+.boxChuDe
+{
+
+    border:1px solid #e2e2e2;
+     -webkit-border-radius:10px;/**/
+     background-color:#f3c28c;
+     padding:7px!important;
+     padding-top:inherit;
+     margin-left:5px;
+     width:100px;
+}
+/*Định dạng nằm trái hay phải*/
+
+.content-left, .content-right
+{
+       height:400px;
+       float:left;
+}
+/* content-right
+---------------------------------------*/
+.content-right {
+    width: 1100px;
+    padding: 0px 8px;
+}
+ .content-right ol
+    {
+        height:335px;
+	    overflow-y:scroll;
+    }
+
+ .content-left
+{
+   width: 150px;
+	font-family: Constantia, Georgia, serif;
+	margin: 0 5px 0 0;
+    background-color:#fff;
+    padding:0px 5px;
+   
+}
+
+ .border-Bottom
+{
+    border-bottom:1px double #e2e2e2;
+}
+
+ nav /*Thanh màu  tren menu*/
+{
+    background-color:#399c50;
+    padding:8px;
+     -webkit-border-radius:5px;/**/
+    border-bottom:3px solid #F6F6F1;
+   
+
+}
+
+ ul#concept-list
+{
+	list-style: none;
+	margin-left: 0px;
+}
+ul#concept-list li
+{
+	height: 165px;
+	width: 135px;
+	float: left;
+	margin: 0px;
+	text-align: center;
+    border: 1px solid #efeeef;
+}
+
+ul#concept-list li img
+{
+	height: 110px;
+	width: 134px;
+    
+	
+}
+.test{
+    width:1000px;
+    height:38px;
+    background:url(~/images/banner.png);
+}

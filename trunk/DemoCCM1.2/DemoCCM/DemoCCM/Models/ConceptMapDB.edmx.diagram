@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a68a4dfc8c704407a65613fc9db1c6b2" Name="Diagram1">
+        <EntityTypeShape EntityType="ConceptModel.ConceptAll" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.ConceptsForTopic" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.Level" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.Link" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.LinkOfMap" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.MapOfUser" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.Topic" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.TopicOfLevel" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.User" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="ConceptModel.FK_ConceptsForTopic_ConceptAll" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_Link_ConceptAll" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_Link_ConceptAll1" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_ConceptsForTopic_Topic" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_TopicOfLevel_Level" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_LinkOfMap_Link" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_LinkOfMap_MapOfUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_MapOfUser_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ConceptModel.FK_TopicOfLevel_Topic" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

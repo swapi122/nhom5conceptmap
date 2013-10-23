@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConceptModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ConceptDBContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ConceptAlls" EntityType="ConceptModel.ConceptAll" />
+    <EntitySet Name="ConceptForQuestions" EntityType="ConceptModel.ConceptForQuestion" />
+    <EntitySet Name="Levels" EntityType="ConceptModel.Level" />
+    <EntitySet Name="Links" EntityType="ConceptModel.Link" />
+    <EntitySet Name="MapOfUsers" EntityType="ConceptModel.MapOfUser" />
+    <EntitySet Name="Questions" EntityType="ConceptModel.Question" />
+    <EntitySet Name="Topics" EntityType="ConceptModel.Topic" />
+    <EntitySet Name="Users" EntityType="ConceptModel.User" />
+    <AssociationSet Name="FK_Link_ConceptAll" Association="ConceptModel.FK_Link_ConceptAll">
+      <End Role="ConceptAll" EntitySet="ConceptAlls" />
+      <End Role="Link" EntitySet="Links" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Link_ConceptAll1" Association="ConceptModel.FK_Link_ConceptAll1">
+      <End Role="ConceptAll" EntitySet="ConceptAlls" />
+      <End Role="Link" EntitySet="Links" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConceptForQuestion_Question" Association="ConceptModel.FK_ConceptForQuestion_Question">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="ConceptForQuestion" EntitySet="ConceptForQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MapOfUser_User" Association="ConceptModel.FK_MapOfUser_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MapOfUser" EntitySet="MapOfUsers" />
+    </AssociationSet>
+    <AssociationSet Name="ConceptsForTopic" Association="ConceptModel.ConceptsForTopic">
+      <End Role="ConceptAll" EntitySet="ConceptAlls" />
+      <End Role="Topic" EntitySet="Topics" />
+    </AssociationSet>
+    <AssociationSet Name="LinkOfMap" Association="ConceptModel.LinkOfMap">
+      <End Role="Link" EntitySet="Links" />
+      <End Role="MapOfUser" EntitySet="MapOfUsers" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionsForTopic" Association="ConceptModel.QuestionsForTopic">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Topic" EntitySet="Topics" />
+    </AssociationSet>
+    <AssociationSet Name="TopicForLevel" Association="ConceptModel.TopicForLevel">
+      <End Role="Level" EntitySet="Levels" />
+      <End Role="Topic" EntitySet="Topics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ConceptAll">
+    <Key>
+      <PropertyRef Name="ConceptID" />
+    </Key>
+    <Property Name="ConceptID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="ConceptName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Links" Relationship="ConceptModel.FK_Link_ConceptAll" FromRole="ConceptAll" ToRole="Link" />
+    <NavigationProperty Name="Links1" Relationship="ConceptModel.FK_Link_ConceptAll1" FromRole="ConceptAll" ToRole="Link" />
+    <NavigationProperty Name="Topics" Relationship="ConceptModel.ConceptsForTopic" FromRole="ConceptAll" ToRole="Topic" />
+  </EntityType>
+  <EntityType Name="ConceptForQuestion">
+    <Key>
+      <PropertyRef Name="ConceptID" />
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="ConceptID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="QuestionID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Question" Relationship="ConceptModel.FK_ConceptForQuestion_Question" FromRole="ConceptForQuestion" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="LevelName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Topics" Relationship="ConceptModel.TopicForLevel" FromRole="Level" ToRole="Topic" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkID" />
+    </Key>
+    <Property Name="LinkID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="ConceptID1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="ConceptID2" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Text" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Result" Type="Boolean" />
+    <NavigationProperty Name="ConceptAll" Relationship="ConceptModel.FK_Link_ConceptAll" FromRole="Link" ToRole="ConceptAll" />
+    <NavigationProperty Name="ConceptAll1" Relationship="ConceptModel.FK_Link_ConceptAll1" FromRole="Link" ToRole="ConceptAll" />
+    <NavigationProperty Name="MapOfUsers" Relationship="ConceptModel.LinkOfMap" FromRole="Link" ToRole="MapOfUser" />
+  </EntityType>
+  <EntityType Name="MapOfUser">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Name="MapID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="MapName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="User" Relationship="ConceptModel.FK_MapOfUser_User" FromRole="MapOfUser" ToRole="User" />
+    <NavigationProperty Name="Links" Relationship="ConceptModel.LinkOfMap" FromRole="MapOfUser" ToRole="Link" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ConceptForQuestions" Relationship="ConceptModel.FK_ConceptForQuestion_Question" FromRole="Question" ToRole="ConceptForQuestion" />
+    <NavigationProperty Name="Topics" Relationship="ConceptModel.QuestionsForTopic" FromRole="Question" ToRole="Topic" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="TopicID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="ToppicName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TopicImage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ConceptAlls" Relationship="ConceptModel.ConceptsForTopic" FromRole="Topic" ToRole="ConceptAll" />
+    <NavigationProperty Name="Questions" Relationship="ConceptModel.QuestionsForTopic" FromRole="Topic" ToRole="Question" />
+    <NavigationProperty Name="Levels" Relationship="ConceptModel.TopicForLevel" FromRole="Topic" ToRole="Level" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Pass" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="MapOfUsers" Relationship="ConceptModel.FK_MapOfUser_User" FromRole="User" ToRole="MapOfUser" />
+  </EntityType>
+  <Association Name="FK_Link_ConceptAll">
+    <End Role="ConceptAll" Type="ConceptModel.ConceptAll" Multiplicity="1" />
+    <End Role="Link" Type="ConceptModel.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConceptAll">
+        <PropertyRef Name="ConceptID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="ConceptID1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Link_ConceptAll1">
+    <End Role="ConceptAll" Type="ConceptModel.ConceptAll" Multiplicity="1" />
+    <End Role="Link" Type="ConceptModel.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConceptAll">
+        <PropertyRef Name="ConceptID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="ConceptID2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConceptForQuestion_Question">
+    <End Role="Question" Type="ConceptModel.Question" Multiplicity="1" />
+    <End Role="ConceptForQuestion" Type="ConceptModel.ConceptForQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="ConceptForQuestion">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MapOfUser_User">
+    <End Role="User" Type="ConceptModel.User" Multiplicity="1" />
+    <End Role="MapOfUser" Type="ConceptModel.MapOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MapOfUser">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ConceptsForTopic">
+    <End Role="ConceptAll" Type="ConceptModel.ConceptAll" Multiplicity="*" />
+    <End Role="Topic" Type="ConceptModel.Topic" Multiplicity="*" />
+  </Association>
+  <Association Name="LinkOfMap">
+    <End Role="Link" Type="ConceptModel.Link" Multiplicity="*" />
+    <End Role="MapOfUser" Type="ConceptModel.MapOfUser" Multiplicity="*" />
+  </Association>
+  <Association Name="QuestionsForTopic">
+    <End Role="Question" Type="ConceptModel.Question" Multiplicity="*" />
+    <End Role="Topic" Type="ConceptModel.Topic" Multiplicity="*" />
+  </Association>
+  <Association Name="TopicForLevel">
+    <End Role="Level" Type="ConceptModel.Level" Multiplicity="*" />
+    <End Role="Topic" Type="ConceptModel.Topic" Multiplicity="*" />
+  </Association>
+</Schema>
