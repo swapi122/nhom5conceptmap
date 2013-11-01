@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConceptModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ConceptModelStoreContainer">
+    <EntitySet Name="ConceptAll" EntityType="ConceptModel.Store.ConceptAll" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConceptForQuestion" EntityType="ConceptModel.Store.ConceptForQuestion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConceptsForTopic" EntityType="ConceptModel.Store.ConceptsForTopic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Level" EntityType="ConceptModel.Store.Level" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Link" EntityType="ConceptModel.Store.Link" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LinkOfMap" EntityType="ConceptModel.Store.LinkOfMap" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MapOfUser" EntityType="ConceptModel.Store.MapOfUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Question" EntityType="ConceptModel.Store.Question" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="QuestionsForTopic" EntityType="ConceptModel.Store.QuestionsForTopic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Topic" EntityType="ConceptModel.Store.Topic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TopicForLevel" EntityType="ConceptModel.Store.TopicForLevel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="ConceptModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ConceptForQuestion_Question" Association="ConceptModel.Store.FK_ConceptForQuestion_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="ConceptForQuestion" EntitySet="ConceptForQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConceptsForTopic_ConceptAll" Association="ConceptModel.Store.FK_ConceptsForTopic_ConceptAll">
+      <End Role="ConceptAll" EntitySet="ConceptAll" />
+      <End Role="ConceptsForTopic" EntitySet="ConceptsForTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConceptsForTopic_Topic" Association="ConceptModel.Store.FK_ConceptsForTopic_Topic">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="ConceptsForTopic" EntitySet="ConceptsForTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Link_ConceptAll" Association="ConceptModel.Store.FK_Link_ConceptAll">
+      <End Role="ConceptAll" EntitySet="ConceptAll" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Link_ConceptAll1" Association="ConceptModel.Store.FK_Link_ConceptAll1">
+      <End Role="ConceptAll" EntitySet="ConceptAll" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LinkOfMap_Link" Association="ConceptModel.Store.FK_LinkOfMap_Link">
+      <End Role="Link" EntitySet="Link" />
+      <End Role="LinkOfMap" EntitySet="LinkOfMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LinkOfMap_MapOfUser" Association="ConceptModel.Store.FK_LinkOfMap_MapOfUser">
+      <End Role="MapOfUser" EntitySet="MapOfUser" />
+      <End Role="LinkOfMap" EntitySet="LinkOfMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MapOfUser_User" Association="ConceptModel.Store.FK_MapOfUser_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="MapOfUser" EntitySet="MapOfUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionsForTopic_Question" Association="ConceptModel.Store.FK_QuestionsForTopic_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="QuestionsForTopic" EntitySet="QuestionsForTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionsForTopic_Topic" Association="ConceptModel.Store.FK_QuestionsForTopic_Topic">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="QuestionsForTopic" EntitySet="QuestionsForTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TopicForLevel_Level" Association="ConceptModel.Store.FK_TopicForLevel_Level">
+      <End Role="Level" EntitySet="Level" />
+      <End Role="TopicForLevel" EntitySet="TopicForLevel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TopicForLevel_Topic" Association="ConceptModel.Store.FK_TopicForLevel_Topic">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="TopicForLevel" EntitySet="TopicForLevel" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ConceptAll">
+    <Key>
+      <PropertyRef Name="ConceptID" />
+    </Key>
+    <Property Name="ConceptID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="ConceptName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ConceptForQuestion">
+    <Key>
+      <PropertyRef Name="ConceptID" />
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="ConceptID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="QuestionID" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ConceptsForTopic">
+    <Key>
+      <PropertyRef Name="ConceptID" />
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="ConceptID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="TopicID" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="LevelName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkID" />
+    </Key>
+    <Property Name="LinkID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="ConceptID1" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="ConceptID2" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="Result" Type="bit" />
+  </EntityType>
+  <EntityType Name="LinkOfMap">
+    <Key>
+      <PropertyRef Name="MapID" />
+      <PropertyRef Name="LinkID" />
+    </Key>
+    <Property Name="MapID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="LinkID" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MapOfUser">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Name="MapID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="MapName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="QuestionText" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="QuestionsForTopic">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="QuestionID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="TopicID" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="TopicID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="ToppicName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopicImage" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TopicForLevel">
+    <Key>
+      <PropertyRef Name="LevelID" />
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="LevelID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="TopicID" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Pass" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ConceptForQuestion_Question">
+    <End Role="Question" Type="ConceptModel.Store.Question" Multiplicity="1" />
+    <End Role="ConceptForQuestion" Type="ConceptModel.Store.ConceptForQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="ConceptForQuestion">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConceptsForTopic_ConceptAll">
+    <End Role="ConceptAll" Type="ConceptModel.Store.ConceptAll" Multiplicity="1" />
+    <End Role="ConceptsForTopic" Type="ConceptModel.Store.ConceptsForTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConceptAll">
+        <PropertyRef Name="ConceptID" />
+      </Principal>
+      <Dependent Role="ConceptsForTopic">
+        <PropertyRef Name="ConceptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConceptsForTopic_Topic">
+    <End Role="Topic" Type="ConceptModel.Store.Topic" Multiplicity="1" />
+    <End Role="ConceptsForTopic" Type="ConceptModel.Store.ConceptsForTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicID" />
+      </Principal>
+      <Dependent Role="ConceptsForTopic">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Link_ConceptAll">
+    <End Role="ConceptAll" Type="ConceptModel.Store.ConceptAll" Multiplicity="1" />
+    <End Role="Link" Type="ConceptModel.Store.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConceptAll">
+        <PropertyRef Name="ConceptID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="ConceptID1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Link_ConceptAll1">
+    <End Role="ConceptAll" Type="ConceptModel.Store.ConceptAll" Multiplicity="1" />
+    <End Role="Link" Type="ConceptModel.Store.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConceptAll">
+        <PropertyRef Name="ConceptID" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="ConceptID2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LinkOfMap_Link">
+    <End Role="Link" Type="ConceptModel.Store.Link" Multiplicity="1" />
+    <End Role="LinkOfMap" Type="ConceptModel.Store.LinkOfMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Link">
+        <PropertyRef Name="LinkID" />
+      </Principal>
+      <Dependent Role="LinkOfMap">
+        <PropertyRef Name="LinkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LinkOfMap_MapOfUser">
+    <End Role="MapOfUser" Type="ConceptModel.Store.MapOfUser" Multiplicity="1" />
+    <End Role="LinkOfMap" Type="ConceptModel.Store.LinkOfMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MapOfUser">
+        <PropertyRef Name="MapID" />
+      </Principal>
+      <Dependent Role="LinkOfMap">
+        <PropertyRef Name="MapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MapOfUser_User">
+    <End Role="User" Type="ConceptModel.Store.User" Multiplicity="1" />
+    <End Role="MapOfUser" Type="ConceptModel.Store.MapOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MapOfUser">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionsForTopic_Question">
+    <End Role="Question" Type="ConceptModel.Store.Question" Multiplicity="1" />
+    <End Role="QuestionsForTopic" Type="ConceptModel.Store.QuestionsForTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="QuestionsForTopic">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionsForTopic_Topic">
+    <End Role="Topic" Type="ConceptModel.Store.Topic" Multiplicity="1" />
+    <End Role="QuestionsForTopic" Type="ConceptModel.Store.QuestionsForTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicID" />
+      </Principal>
+      <Dependent Role="QuestionsForTopic">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TopicForLevel_Level">
+    <End Role="Level" Type="ConceptModel.Store.Level" Multiplicity="1" />
+    <End Role="TopicForLevel" Type="ConceptModel.Store.TopicForLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="TopicForLevel">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TopicForLevel_Topic">
+    <End Role="Topic" Type="ConceptModel.Store.Topic" Multiplicity="1" />
+    <End Role="TopicForLevel" Type="ConceptModel.Store.TopicForLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicID" />
+      </Principal>
+      <Dependent Role="TopicForLevel">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
