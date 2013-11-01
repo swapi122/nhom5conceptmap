@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Scripts/js")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <h1><a href="#">Concept<span class="logo_colour">MAP</span></a></h1>
+          <h2>my website concept map</h2>
+        </div>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li>@Html.ActionLink("Home","Index","TrangChu")</li>
+            <li>@Html.ActionLink("Giới Thiệu","Index","TrangChu")</li>
+            <li>@Html.ActionLink("Liên Hệ","Index","TrangChu")</li>
+            <li>@Html.ActionLink("Diễn Đàn","Index","TrangChu")</li>
+            <li>@Html.ActionLink("Học Online","Index","TrangChu")</li>
+           
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="main_content">
+     
+        @{Html.RenderAction("_TrinhDoPartial", "TrangChu");}
+    	@RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @RenderSection("scripts", required: false)
+
+        <div class="right_content"></div>
+     </div>
+	<footer>
+      <p>@Html.ActionLink("Home","Index","TrangChu") | <a href="#"> About </a>|<a href="#"> Contact Us </a></p>
+      <p>Copyright © MrWind | <a href="#">follow me: Https://facebook.com/example.</a></p>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            $('ul.nav_left li a').hover(function () {
+                $(this).addClass("highlight");
+            }, function () {
+                $(this).removeClass("highlight");
+            });
+            $('ul.nav_left li a').click(function () {
+                $(".highlight_stay").removeClass('highlight_stay');
+                $(this).addClass("highlight_stay");
+            });
+        });
+  </script>
+</div>
+</body>
+</html>

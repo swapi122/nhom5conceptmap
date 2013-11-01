@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConceptModelStoreContainer" CdmEntityContainer="ConceptDBContext">
+    <EntitySetMapping Name="ConceptAlls">
+      <EntityTypeMapping TypeName="ConceptModel.ConceptAll">
+        <MappingFragment StoreEntitySet="ConceptAll">
+          <ScalarProperty Name="ConceptID" ColumnName="ConceptID" />
+          <ScalarProperty Name="ConceptName" ColumnName="ConceptName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConceptForQuestions">
+      <EntityTypeMapping TypeName="ConceptModel.ConceptForQuestion">
+        <MappingFragment StoreEntitySet="ConceptForQuestion">
+          <ScalarProperty Name="ConceptID" ColumnName="ConceptID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Levels">
+      <EntityTypeMapping TypeName="ConceptModel.Level">
+        <MappingFragment StoreEntitySet="Level">
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Links">
+      <EntityTypeMapping TypeName="ConceptModel.Link">
+        <MappingFragment StoreEntitySet="Link">
+          <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+          <ScalarProperty Name="ConceptID1" ColumnName="ConceptID1" />
+          <ScalarProperty Name="ConceptID2" ColumnName="ConceptID2" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MapOfUsers">
+      <EntityTypeMapping TypeName="ConceptModel.MapOfUser">
+        <MappingFragment StoreEntitySet="MapOfUser">
+          <ScalarProperty Name="MapID" ColumnName="MapID" />
+          <ScalarProperty Name="MapName" ColumnName="MapName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="ConceptModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="ConceptModel.Topic">
+        <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+          <ScalarProperty Name="ToppicName" ColumnName="ToppicName" />
+          <ScalarProperty Name="TopicImage" ColumnName="TopicImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ConceptModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ConceptsForTopic" TypeName="ConceptModel.ConceptsForTopic" StoreEntitySet="ConceptsForTopic">
+      <EndProperty Name="ConceptAll">
+        <ScalarProperty Name="ConceptID" ColumnName="ConceptID" />
+      </EndProperty>
+      <EndProperty Name="Topic">
+        <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LinkOfMap" TypeName="ConceptModel.LinkOfMap" StoreEntitySet="LinkOfMap">
+      <EndProperty Name="Link">
+        <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+      </EndProperty>
+      <EndProperty Name="MapOfUser">
+        <ScalarProperty Name="MapID" ColumnName="MapID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="QuestionsForTopic" TypeName="ConceptModel.QuestionsForTopic" StoreEntitySet="QuestionsForTopic">
+      <EndProperty Name="Question">
+        <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+      </EndProperty>
+      <EndProperty Name="Topic">
+        <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TopicForLevel" TypeName="ConceptModel.TopicForLevel" StoreEntitySet="TopicForLevel">
+      <EndProperty Name="Level">
+        <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+      </EndProperty>
+      <EndProperty Name="Topic">
+        <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

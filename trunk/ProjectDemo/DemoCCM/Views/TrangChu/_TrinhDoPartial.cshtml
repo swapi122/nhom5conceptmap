@@ -1,0 +1,11 @@
+﻿@model List< DemoCCM.Models.Level>
+
+ <div class="left_menu">
+    <ul class="nav_left">
+         @foreach(var item in Model)
+              {
+                    <li>@Ajax.ActionLink(item.LevelName, "_TopicLevel", "Level", new { levelID1 = item.LevelID }, new AjaxOptions {HttpMethod="GET", InsertionMode = InsertionMode.Replace, UpdateTargetId="site_content"})</li>
+                     
+              } 
+     </ul> 
+ </div>
