@@ -392,9 +392,9 @@ ul#nav li a:hover,ul#nav li a:focus {
 }
 /*-- slide*/
 .item:hover {
-	-webkit-box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;
-	-moz-box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;
-	box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;
+	-webkit-box-shadow: 0 0 8px #ffb609, 0 0 8px #ffb609;
+	-moz-box-shadow: 0 0 8px #ffb609, 0 0 8px #ffb609;
+	box-shadow: 0 0 8px #ffb609, 0 0 8px #ffb609;
 }
 .item {
 	border-radius: 15px;
@@ -403,9 +403,9 @@ ul#nav li a:hover,ul#nav li a:focus {
 	background-color: #FCF7F7;
 	margin: 10px;
 	float: left;
-	-webkit-box-shadow: 0 1px 3px #c3c3c3;
-	-moz-box-shadow: 0 1px 3px #c3c3c3;
-	box-shadow: 0 1px 3px #c3c3c3;
+	-webkit-box-shadow: 0 1px 3px #ffb609;
+	-moz-box-shadow: 0 1px 3px #ffb609;
+	box-shadow: 0 1px 3px #ffb609;
 	overflow: hidden;
 	-webkit-transition: box-shadow 0.2s ease-in-out;
 	-moz-transition: box-shadow 0.2s ease-in-out;

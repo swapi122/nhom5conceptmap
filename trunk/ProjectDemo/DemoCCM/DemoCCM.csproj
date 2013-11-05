@@ -175,29 +175,33 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\another_page.png" />
     <Content Include="Content\images\arrows-white.png" />
     <Content Include="Content\images\bg_paper.gif" />
     <Content Include="Content\images\browser.png" />
     <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\closedhand.png" />
     <Content Include="Content\images\contact.png" />
+    <Content Include="Content\images\creator-nub-sprite.png" />
     <Content Include="Content\images\examples.png" />
+    <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\footer.png" />
     <Content Include="Content\images\graphic.jpg" />
-    <Content Include="Content\images\home.png" />
-    <Content Include="Content\images\item10.png" />
-    <Content Include="Content\images\item2.png" />
-    <Content Include="Content\images\item3.png" />
-    <Content Include="Content\images\item6.png" />
+    <Content Include="Content\images\grid.gif" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoconcept.gif" />
     <Content Include="Content\images\menubar.png" />
     <Content Include="Content\images\menu_hover.png" />
+    <Content Include="Content\images\openhand.png" />
     <Content Include="Content\images\page.png" />
     <Content Include="Content\images\paperclip.png" />
     <Content Include="Content\images\pattern.png" />
+    <Content Include="Content\images\plus-minus.png" />
     <Content Include="Content\images\top.png" />
+    <Content Include="Content\images\transparent.png" />
     <Content Include="Content\stylelevel.css" />
+    <Content Include="Content\app.css" />
     <Content Include="Photos\concepts\no_image.png" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\js_style.js" />
@@ -317,6 +321,7 @@
     <Content Include="Views\TrangChu\Index.cshtml" />
     <Content Include="Views\TrangChu\_TrinhDoPartial.cshtml" />
     <Content Include="Views\Topic\_Concept_Topic_LevelPartial.cshtml" />
+    <Content Include="Views\Shared\_DrawLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

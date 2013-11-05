@@ -2,10 +2,8 @@
 
 @Scripts.Render("~/Scripts/js_style.js")
 
-   <div class ="space"></div>
-       <div class="title_box"> Khái Niệm <img id="updow1" src="~/Content/images/2.png" /></div>
-          <div class="boxhide">
-              <ul class="scope">
+<div>
+              <ul>
                   @foreach (var item in Model)
                   {
                       <li>@item.ConceptAll.ConceptName @item.ConceptAll.ConceptID</li>
@@ -15,6 +13,5 @@
                       @Html.DropDownList("Question",(IEnumerable<SelectListItem>)l)
                   }
                </ul>
-               
-          </div>
+    </div>
 @{Html.RenderAction("_LinkOfTopicPartial", "Topic", new {concept = Model});}

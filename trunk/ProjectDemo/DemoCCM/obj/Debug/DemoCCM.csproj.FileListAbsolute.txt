@@ -328,3 +328,28 @@ F:\demo CNPM\DemoCCM\bin\System.Web.WebPages.Razor.xml
 F:\demo CNPM\DemoCCM\obj\Debug\DemoCCM.csprojResolveAssemblyReference.cache
 F:\demo CNPM\DemoCCM\obj\Debug\DemoCCM.dll
 F:\demo CNPM\DemoCCM\obj\Debug\DemoCCM.pdb
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\DemoCCM.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\DemoCCM.pdb
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\Microsoft.Web.Infrastructure.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Net.Http.Formatting.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Http.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Http.WebHost.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Mvc.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Razor.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Deployment.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.WebPages.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Razor.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\EntityFramework.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\Microsoft.Web.Infrastructure.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\Newtonsoft.Json.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Net.Http.Formatting.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Http.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Http.WebHost.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Mvc.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.Razor.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.WebPages.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Deployment.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Razor.xml
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.csprojResolveAssemblyReference.cache
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.dll
+F:\nhom5-cnpm-mvc4\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.pdb

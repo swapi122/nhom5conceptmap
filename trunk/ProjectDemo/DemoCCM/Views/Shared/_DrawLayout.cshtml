@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/app.css")
+    @Scripts.Render("~/Scripts/js")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+  
+    	
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @RenderSection("scripts", required: false)
+ <div id="container">
+     @RenderBody()
+	<header>
+		<div id="topbar">
+    		<div id="toolbar">
+                
+            </div>
+   		</div>
+	</header>
+    <div id="canvas-container">
+    </div>
+    <footer>
+    	<div id="bottombar"></div>
+    </footer>
+</div>
+</body>
+</html>

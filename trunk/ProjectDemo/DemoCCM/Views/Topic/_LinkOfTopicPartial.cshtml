@@ -3,16 +3,14 @@
 @Scripts.Render("~/Scripts/js_style.js")
 
      
-          <div class="title_box"> Liên Kết <img id="updow2" src="~/Content/images/2.png" /></div>
-             <div class="boxhide2">
-                   <ul class="scope">
-                      @foreach (var item in Model)
-                         {
-                          
-                             <li>@item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2</li>
-                        }
-                    </ul>
-         </div>
+<div> 
+ <ul>
+    @foreach (var item in Model)
+     {
+        <li>@item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2</li>
+      }
+  </ul>
+    </div>
                
                
     
