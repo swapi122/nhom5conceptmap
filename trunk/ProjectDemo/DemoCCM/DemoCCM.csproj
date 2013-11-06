@@ -195,6 +195,7 @@
     <Content Include="Content\stylelevel.css" />
     <Content Include="Content\app.css" />
     <Content Include="Photos\concepts\no_image.png" />
+    <Content Include="Photos\logocc2.png" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\js_style.js" />
     <Content Include="Content\style.css" />
