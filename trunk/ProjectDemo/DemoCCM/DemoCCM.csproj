@@ -185,6 +185,7 @@
     <Content Include="Content\images\graphic.jpg" />
     <Content Include="Content\images\grid.gif" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Photos\concepts\vatli.jpg" />
     <Content Include="Photos\logocc.png" />
     <Content Include="Content\images\menubar.png" />
     <Content Include="Content\images\menu_hover.png" />
@@ -254,7 +255,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Photos\bg.jpg" />
     <Content Include="Photos\concepts\dialy.jpg" />
     <Content Include="Photos\concepts\giadinh.jpg" />
     <Content Include="Photos\concepts\kinhte.jpg" />
@@ -280,7 +280,6 @@
       <LastGenOutput>ConceptMapDB.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Photos\banner.png" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
