@@ -176,27 +176,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\ajax-loader.gif" />
-    <Content Include="Content\images\another_page.png" />
     <Content Include="Content\images\arrows-white.png" />
-    <Content Include="Content\images\bg_paper.gif" />
-    <Content Include="Content\images\browser.png" />
     <Content Include="Content\images\bullet.png" />
     <Content Include="Content\images\closedhand.png" />
-    <Content Include="Content\images\contact.png" />
     <Content Include="Content\images\creator-nub-sprite.png" />
-    <Content Include="Content\images\examples.png" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\footer.png" />
     <Content Include="Content\images\graphic.jpg" />
     <Content Include="Content\images\grid.gif" />
     <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\logoconcept.gif" />
+    <Content Include="Photos\logocc.png" />
     <Content Include="Content\images\menubar.png" />
     <Content Include="Content\images\menu_hover.png" />
     <Content Include="Content\images\openhand.png" />
-    <Content Include="Content\images\page.png" />
-    <Content Include="Content\images\paperclip.png" />
-    <Content Include="Content\images\pattern.png" />
     <Content Include="Content\images\plus-minus.png" />
     <Content Include="Content\images\top.png" />
     <Content Include="Content\images\transparent.png" />

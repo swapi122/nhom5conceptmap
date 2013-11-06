@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 body{
 	margin:0;
@@ -20,14 +20,13 @@ div {
 #toolbar {
   background-color: #DDDCDC;
   overflow: hidden;
-  height:45px;
+  height:50px;
   width: 100%;
 }
 #canvas-container {
 	position: absolute;
 	overflow: hidden;
-	background-color: white;
-	background-image: url("grid.gif");
+    background: url("images/grid.gif");
 	background-size: 24px 24px;
 	width:100%;
 	height:1000px;
@@ -39,6 +38,25 @@ div {
 	background: #DDDCDC;
 	border-top: 1px solid #AAA;
 	width:100%;
-	height:45px;
+	height:50px;
 }
 
+#leftbar {
+    margin:10px;
+    position:fixed;
+    z-index:3;
+}
+div#leftbar #leftbox {
+    margin:10px;
+    width:200px;
+    height:250px;
+    background-color:#e8e8e8;
+    -webkit-box-shadow: 1px 2px 1px #808080;
+	-moz-box-shadow: 1px 2px 1px #808080;
+	box-shadow: 1px 2px 1px #808080;
+    border-radius:5px;
+}
+div#toolbar img {
+    height:50px;
+    float:left;
+}

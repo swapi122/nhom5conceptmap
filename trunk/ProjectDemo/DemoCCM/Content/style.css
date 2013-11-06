@@ -143,6 +143,11 @@ header {
   top: 5px;
   left: 0;
 }
+div#logo_text img {
+    padding-top: 30px;
+    width:120px;
+    height:auto;
+}
 
 #logo h1, #logo h2 { 
   font: normal 300% 'Yanone Kaffeesatz', arial, sans-serif;

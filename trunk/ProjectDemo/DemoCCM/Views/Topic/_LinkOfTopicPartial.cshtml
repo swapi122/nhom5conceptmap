@@ -1,16 +1,12 @@
 ﻿
 @model IEnumerable<DemoCCM.Models.Link> 
-@Scripts.Render("~/Scripts/js_style.js")
-
-     
-<div> 
- <ul>
+<div id="leftbox">
+    link
     @foreach (var item in Model)
      {
-        <li>@item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2</li>
+        <div>@item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2</div>
       }
-  </ul>
-    </div>
+ </div>
                
                
     
