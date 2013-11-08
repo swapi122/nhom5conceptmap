@@ -24,7 +24,6 @@ namespace DemoCCM.Controllers
 
         }
 
-
         //Làm tương tự như Khái Niệm 
         public PartialViewResult _LinkOfTopicPartial(List<ConceptsForTopic> concept)
         {
