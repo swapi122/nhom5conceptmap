@@ -364,9 +364,7 @@ F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.Razor.dll
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Deployment.dll
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.WebPages.dll
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Razor.dll
-F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\EntityFramework.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\Microsoft.Web.Infrastructure.xml
-F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\Newtonsoft.Json.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Net.Http.Formatting.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.Http.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.Http.WebHost.xml
@@ -375,6 +373,6 @@ F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.Razor.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.WebPages.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Deployment.xml
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Razor.xml
-F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.csprojResolveAssemblyReference.cache
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.dll
 F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.pdb
+F:\Ki7\CNPN\Nhom5\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.csprojResolveAssemblyReference.cache

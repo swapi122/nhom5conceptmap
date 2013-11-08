@@ -1,4 +1,5 @@
-﻿@model List<DemoCCM.Models.ConceptsForTopic>
+﻿
+@model List<DemoCCM.Models.ConceptsForTopic>
 
 <header>
     <script>
@@ -31,12 +32,17 @@
      concept
                   @foreach (var item in Model)
                   {
-                      <div id="drag1" draggable="true" ondragstart="drag(event)" width="336" height="69" >@item.ConceptAll.ConceptName @item.ConceptAll.ConceptID</div>
+                      <div id="drag1" draggable="true" ondragstart="drag(event)" width="336" height="69" >
+                          @item.ConceptAll.ConceptName @item.ConceptAll.ConceptID</div>
+                 
                   }
-                  @{
-                      var l = new SelectList(Model,"Question","Question");
-                      @Html.DropDownList("Question",(IEnumerable<SelectListItem>)l  )
-                  }
+   
+
+
+               
+  
+
     </div>
-@{Html.RenderAction("_LinkOfTopicPartial", "Topic", new {concept = Model});}
+
+@{Html.RenderAction("_LinkOfTopicPartial", "Topic", new { concept = Model });}
 

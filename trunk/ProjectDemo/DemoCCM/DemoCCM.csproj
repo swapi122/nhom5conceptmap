@@ -160,6 +160,7 @@
     <Compile Include="Models\LinkOfMap.cs">
       <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Map.cs" />
     <Compile Include="Models\MapOfUser.cs">
       <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
@@ -314,6 +315,8 @@
     <Content Include="Views\TrangChu\_TrinhDoPartial.cshtml" />
     <Content Include="Views\Topic\_Concept_Topic_LevelPartial.cshtml" />
     <Content Include="Views\Shared\_DrawLayout.cshtml" />
+    <Content Include="Views\Topic\dropdownQuestion.cshtml" />
+    <Content Include="Views\Topic\check.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
