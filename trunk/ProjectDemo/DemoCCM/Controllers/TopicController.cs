@@ -16,7 +16,8 @@ namespace DemoCCM.Controllers
 
         public ActionResult Index(String LevelID1, String topicId1)
         {
-            ViewBag.cd = new SelectList(db.ConceptsForTopics, "Question", "Question");
+            List<ConceptsForTopic> ct = db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1) && p.Levels.Contains(LevelID1)).ToList();
+            ViewBag.cd = new SelectList(ct, "Question", "Question");
             ViewBag.levelID2 = LevelID1;
             ViewBag.topicID2 = topicId1;
             return View();
