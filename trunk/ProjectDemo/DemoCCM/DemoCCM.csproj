@@ -313,11 +313,8 @@
     <Content Include="Views\Topic\_LinkOfTopicPartial.cshtml" />
     <Content Include="Views\TrangChu\Index.cshtml" />
     <Content Include="Views\TrangChu\_TrinhDoPartial.cshtml" />
-    <Content Include="Views\Topic\_Concept_Topic_LevelPartial.cshtml" />
     <Content Include="Views\Shared\_DrawLayout.cshtml" />
-    <Content Include="Views\Topic\dropdownQuestion.cshtml" />
-    <Content Include="Views\Topic\check.cshtml" />
-    <Content Include="Views\Topic\dropdown.cshtml" />
+    <Content Include="Views\Topic\_dropdownListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
