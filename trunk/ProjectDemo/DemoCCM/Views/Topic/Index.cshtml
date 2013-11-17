@@ -12,10 +12,10 @@
   	<div id="topbar">
     		<div id="toolbar">
                 <img src="photos/logocc2.png" alt="Concept Map">
- 
-                      @{Html.RenderAction("_dropdownListPartial", "Topic",
-                    new { LevelID = levelID3, topicId1 = topicID3 });}
-               
+                    <div id="centerbartop">
+                        <h4>Câu Hỏi Trọng Tâm</h4>
+                        @{Html.RenderAction("_dropdownListPartial", "Topic", new { LevelID = levelID3, topicId1 = topicID3 });}
+                    </div>
 
             </div>
    		</div>
@@ -46,7 +46,7 @@
 
              $('.boxc').draggable({
                  cursor: 'move',
-                 revert: true
+                 revert: true 
              });
 
              $('#mapd').droppable({
@@ -56,12 +56,18 @@
 
              function handleDropEvent(event, ui) {
                  draggable.appendTo('.boxc')
-                
              }
          });
     </script>
 
     <footer>
-    	<div id="bottombar"></div>
-    </footer>
+    	<div id="bottombar"> 
+            <div id="centerbarbot">
+            <button type="button">Save</button>
+            <button type="button">Kết Quả</button>
+            <button type="button">Đánh Giá</button>
+            <button type="button">Làm Lại</button>   
+            </div>
+    	</div>
+    <//footer>
 </div>
