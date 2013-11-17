@@ -1,0 +1,20 @@
+﻿@{
+     string s1= ViewBag.levelId as String;
+     string s2 = ViewBag.topicId as String;
+}
+@using (Html.BeginForm("Index", "Topic",new{LevelID1=s1,topicId1=s2}, FormMethod.Post, new { id = "formFillter" }))
+{
+        @Html.DropDownList("ConceptID", ViewBag.cd as SelectList, new { id = "ddlMenu" })
+   
+}
+                       
+    <script type='text/javascript'>
+        $(document).ready();
+        $(function () {
+            $('#ddlMenu').change(function () {                          
+                $('#formFillter').submit();
+            });
+        });
+    </script>
+                     
+                    
