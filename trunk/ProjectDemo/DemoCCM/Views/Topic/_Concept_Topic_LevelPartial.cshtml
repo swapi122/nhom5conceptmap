@@ -2,7 +2,7 @@
 @model List<DemoCCM.Models.ConceptsForTopic>
 
 <header>
-    <script>
+ <script>
         function allowDrop(ev) {
             ev.preventDefault();
         }
@@ -16,7 +16,7 @@
             var data = ev.dataTransfer.getData("Text");
             ev.target.appendChild(document.getElementById(data));
         }
-</script>
+     </script>
     <style type="text/css">
 #div2 { width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
 </style>
@@ -36,11 +36,6 @@
                           @item.ConceptAll.ConceptName @item.ConceptAll.ConceptID</div>
                  
                   }
-   
-
-
-               
-  
 
     </div>
 

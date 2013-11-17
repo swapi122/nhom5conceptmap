@@ -1,4 +1,4 @@
-﻿
+﻿@model DemoCCM.Models.Map
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DrawLayout.cshtml";
@@ -8,34 +8,59 @@
 }
 <div id="container">
 	<header>
+
+     <script>
+             function allowDrop(ev) {
+                 ev.preventDefault();
+             }
+
+             function drag(ev) {
+                 ev.dataTransfer.setData("Text", ev.target.id);
+             }
+
+             function drop(ev) {
+                 ev.preventDefault();
+                 var data = ev.dataTransfer.getData("Text");
+                 ev.target.appendChild(document.getElementById(data));
+             }
+     </script>
+    <style type="text/css">
+#div2 { width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+</style>
 		<div id="topbar">
     		<div id="toolbar">
                 <img src="photos/logocc2.png" alt="Concept Map">
-                 
-                  @using(Html.BeginForm("Index","Topic",FormMethod.Post,new { id = "formFillter"}))
-                  {
-                    @Html.DropDownList("ConceptID", ViewBag.cd as SelectList, new { id="ddlMenu"})
-                      //Loc theo tham so Question
-                  }
-                 
-                <script type='text/javascript'>
-                    $(document).ready();
-                    $(function () {
-                        $('#ddlMenu').change(function () {                          
-                            $('#formFillter').submit();
-                        });
-                    });
-                   
-</script>
+ 
+                      @{Html.RenderAction("dropdown", "Topic",
+                    new { LevelID = levelID3, topicId1 = topicID3 });}
+               
 
             </div>
    		</div>
 	</header>
-    <div id="leftbar">   
-                
-              @{Html.RenderAction("_Concept_Topic_LevelPartial", "Topic", 
-                    new { LevelID = levelID3, TopicID = topicID3});}
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+
+    <div id="leftbox">
+     concept
+                  @foreach (var item in Model.Concepts)
+                  {
+                      <div id="drag1" draggable="true" ondragstart="drag(event)" width="336" height="69" >
+                          @item.ConceptName @item.ConceptID</div>
+                 
+                  }
+
     </div>
+
+    @*@{Html.RenderAction("_LinkOfTopicPartial", "Topic", new { concept = Model });}*@
+
+
+
+
+
+
+
+
     <div id="canvas-container">
         kkkkk
     </div>

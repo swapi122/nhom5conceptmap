@@ -13,18 +13,88 @@ namespace DemoCCM.Controllers
         // GET: /ChuDe/
 
         ConceptMapDBContext db = new ConceptMapDBContext();
+
+      
+        public PartialViewResult dropdown(String LevelID, String topicId1)
+        {
+            List<ConceptsForTopic> ct =
+                db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1) && p.Levels.Contains(LevelID)).ToList();
+            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
+           //=--------------
+            ViewBag.levelId = LevelID;
+            ViewBag.topicId = topicId1;
+            //--------------------------
+            return PartialView(ct);
+        }
+
+        //giúp giữ lại những câu hỏi thuộc Câp độ và CHủ đề đang đứng
+        [HttpPost, ActionName("dropdown")]
+        public PartialViewResult dropdownzzz(String LevelID, String topicId1,string Bien1)
+        {
+            List<ConceptsForTopic> ct =
+                db.ConceptsForTopics.ToList();
+            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
+
+            return PartialView();
+        }
+
         // cai nay la get
         // ta lam them 1 cai post
-        public ActionResult Index(String LevelID1, String topicId1)
+        //mới
+        string t1=null;
+        string t2=null;
+        //tui mun lấy gtri LevelID1, đưa wa Indexxxxx
+        public ActionResult Index(String LevelID1, String topicId1, string ConceptID)
         {
-            List<ConceptsForTopic> ct = 
-                db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1) && p.Levels.Contains(LevelID1)).ToList();
-            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
             ViewBag.levelID2 = LevelID1;
             ViewBag.topicID2 = topicId1;
-            return View();
+           
+            /*
+            //--------------------------------------------
+            List<ConceptsForTopic> conceptForTopics;
+            conceptForTopics = db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1)).ToList();
+            List<ConceptsForTopic> conceptForTopics2 = new List<ConceptsForTopic>();
+            ConceptsForTopic concept = new ConceptsForTopic();
 
+            foreach (var k in conceptForTopics)
+            {
+                string[] catchuoi = k.Levels.Split(new char[] { ',' });
+                foreach (string s1 in catchuoi)
+                {
+
+                    if (s1.Trim() != "")
+                    {
+                        if (s1.ToString().Equals(LevelID1))
+                        {
+                            if (ConceptID != null)
+                                concept = conceptForTopics.Find(p => p.ConceptID.Equals(k.ConceptID).Equals(ConceptID));
+                            else
+                                concept = conceptForTopics.Find(p => p.ConceptID.Equals(k.ConceptID));
+
+                            conceptForTopics2.Add(concept);
+
+                        }
+                    }
+
+                }
+
+            }*/
+            if (ConceptID == null)
+                ConceptID = db.ConceptsForTopics.FirstOrDefault(c => c.TopicID.Equals(topicId1)&&c.Levels.Contains(LevelID1)).ConceptID;
+            Map m = getMap(LevelID1, topicId1, ConceptID);
+            return View(m);
         }
+
+        [HttpPost, ActionName("Index")]
+        public ActionResult Indexxx(String LevelID1, String topicId1, String ConceptID)
+        {
+            Map m = getMap(LevelID1, topicId1, ConceptID);
+            return View(m);
+        }
+
+        
+    
+       
         public List<Link> listLink(String LevelID, String topicId1, string ConceptID)
         {
             List<Link> list=new List<Link>();
@@ -72,19 +142,7 @@ namespace DemoCCM.Controllers
             m.Concepts.Insert(0,cons.Where(p => p.ConceptID.Equals("1")).First());
             return View(m);
         }
-        [HttpPost, ActionName("Index")]
-        public ActionResult Indexzz(String LevelID1, String topicId1, string ConceptID)
-        {
-            ViewBag.levelID2 = LevelID1;
-            ViewBag.topicID2 = topicId1;
-            //ViewBag.conceptID = ConceptID;
-
-            //List<ConceptsForTopic> ct =  listLink("LV3", "TP3", ConceptID))
-
-  
-            return View("Index");
-
-        }
+       
         //Làm tương tự như Khái Niệm 
         public PartialViewResult _LinkOfTopicPartial(List<ConceptsForTopic> concept)
         {
@@ -110,42 +168,46 @@ namespace DemoCCM.Controllers
             return PartialView(links);
         }
 
-        public PartialViewResult _Concept_Topic_LevelPartial(String LevelID, String TopicID)
-        {
-            List<ConceptsForTopic> conceptForTopics;
-            conceptForTopics = db.ConceptsForTopics.Where(p=>p.TopicID.Equals(TopicID)).ToList();
-            List<ConceptsForTopic> conceptForTopics2 = new List<ConceptsForTopic>();
-            ConceptsForTopic concept = new ConceptsForTopic();
+        
+       
+        //public PartialViewResult _Concept_Topic_LevelPartial(String LevelID, String TopicID,String ConceptID)
+        //{
+        //    List<ConceptsForTopic> conceptForTopics;
+        //    conceptForTopics = db.ConceptsForTopics.Where(p => p.TopicID.Equals(TopicID)).ToList();
+        //    List<ConceptsForTopic> conceptForTopics2 = new List<ConceptsForTopic>();
+        //    ConceptsForTopic concept = new ConceptsForTopic();
 
-            foreach (var k in conceptForTopics)
-            {
-                string[] catchuoi = k.Levels.Split(new char[] { ',' });
-                foreach (string s1 in catchuoi)
-                {
+        //    foreach (var k in conceptForTopics)
+        //    {
+        //        string[] catchuoi = k.Levels.Split(new char[] { ',' });
+        //        foreach (string s1 in catchuoi)
+        //        {
 
-                    if (s1.Trim() != "")
-                    {
-                        if (s1.ToString().Equals(LevelID))
-                        {
+        //            if (s1.Trim() != "")
+        //            {
+        //                if (s1.ToString().Equals(LevelID))
+        //                {
+        //                    if(ConceptID!=null)
+        //                    concept = conceptForTopics.Find(p => p.ConceptID.Equals(k.ConceptID).Equals(ConceptID));
+        //                    else
+        //                        concept = conceptForTopics.Find(p => p.ConceptID.Equals(k.ConceptID));
 
-                            concept = conceptForTopics.Find(p => p.ConceptID.Equals(k.ConceptID));
-                            conceptForTopics2.Add(concept);
-                            
-                        }
-                    }
+        //                    conceptForTopics2.Add(concept);
 
-                }
+        //                }
+        //            }
 
-            }
+        //        }
 
-            return PartialView(conceptForTopics2);
-        }
+        //    }
 
+           // return PartialView(conceptForTopics2);
+       // }
 
-         public PartialViewResult dropdownQuestion ( string idQues)
-         {
-             ViewBag.a = idQues;
-             return PartialView();
-         }
+         //public PartialViewResult dropdownQuestion ( string idQues)
+         //{
+         //    ViewBag.a = idQues;
+         //    return PartialView();
+         //}
     }
 }
