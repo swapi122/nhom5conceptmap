@@ -44,7 +44,6 @@ namespace DemoCCM.Controllers
             ViewBag.levelID2 = LevelID1;
             ViewBag.topicID2 = topicId1;
            
-           
             if (ConceptID == null)
                 ConceptID = db.ConceptsForTopics.FirstOrDefault(c => c.TopicID.Equals(topicId1)&&c.Levels.Contains(LevelID1)).ConceptID;
             Map m = getMap(LevelID1, topicId1, ConceptID);
@@ -57,10 +56,7 @@ namespace DemoCCM.Controllers
             Map m = getMap(LevelID1, topicId1, ConceptID);
             return View(m);
         }
-
-        
-    
-       
+   
         public List<Link> listLink(String LevelID, String topicId1, string ConceptID)
         {
             List<Link> list=new List<Link>();

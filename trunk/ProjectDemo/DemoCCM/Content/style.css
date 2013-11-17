@@ -328,6 +328,7 @@ ul.sf-menu,ul.sf-menu * {
 }
 
 ul.sf-menu { 
+  margin-right: 20%;
   display: block;
   position: relative;
 }

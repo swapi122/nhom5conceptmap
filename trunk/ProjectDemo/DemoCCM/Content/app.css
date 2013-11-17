@@ -15,7 +15,7 @@ body{
   width: 100%;
 }
 div {
-	display: block;
+    display: block;
 }
 #toolbar {
   background-color: #DDDCDC;
@@ -23,13 +23,17 @@ div {
   height:50px;
   width: 100%;
 }
+#mapd {
+   float:left;
+   width:80%;
+   height:100%;
+}
 #canvas-container {
-	position: absolute;
-	overflow: hidden;
+    margin:0;
+    height:700px;
     background: url("images/grid.gif");
 	background-size: 24px 24px;
-	width:100%;
-	height:1000px;
+    
 }
 #bottombar {
 	position: fixed;
@@ -42,21 +46,34 @@ div {
 }
 
 #leftbar {
-    margin:10px;
-    position:fixed;
-    z-index:3;
+    width:210px;
+    height:700px;
+    float:left;
 }
-div#leftbar #leftbox {
-    margin:10px;
+#leftbox h3 {
+    background-color:#fa870b;
+    color:white;
+    margin:0;
+    text-align:center;
+}
+#leftbox {
+    
     width:200px;
     height:250px;
-    background-color:#e8e8e8;
+    margin:20px 20px 0 10px;
+    background-color:#ffffff;
     -webkit-box-shadow: 1px 2px 1px #808080;
 	-moz-box-shadow: 1px 2px 1px #808080;
 	box-shadow: 1px 2px 1px #808080;
-    border-radius:5px;
+    border: 1px solid #AAA;
+    border-radius:2px;
 }
 div#toolbar img {
     height:50px;
     float:left;
 }
+div.boxc {
+ z-index:1;
+ border: 1px dashed #808080;   
+}
+
