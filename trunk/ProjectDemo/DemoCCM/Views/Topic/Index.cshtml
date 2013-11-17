@@ -52,7 +52,7 @@
 
     </div>
 
-    @*@{Html.RenderAction("_LinkOfTopicPartial", "Topic", new { concept = Model });}*@
+    @{Html.RenderAction("_LinkOfTopicPartial", "Topic", new { links = Model.Links });}
 
 
 

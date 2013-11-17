@@ -144,11 +144,10 @@ namespace DemoCCM.Controllers
         }
        
         //Làm tương tự như Khái Niệm 
-        public PartialViewResult _LinkOfTopicPartial(List<ConceptsForTopic> concept)
+        public PartialViewResult _LinkOfTopicPartial(List<Link> links)
         {
             //Làm tương tự như Khái Niệm 
-
-
+            /*
             List<Link> links = new List<Link>();
 
             var ids = from a in concept
@@ -163,7 +162,7 @@ namespace DemoCCM.Controllers
                 {
                     links.Add(i);
                 }
-            }
+            }*/
 
             return PartialView(links);
         }
