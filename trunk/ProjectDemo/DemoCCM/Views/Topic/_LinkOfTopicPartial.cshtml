@@ -2,10 +2,15 @@
 @model IEnumerable<DemoCCM.Models.Link> 
 <div id="leftbox">
     <h3>Liên Kết</h3>
+    <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
     @foreach (var item in Model)
      {
-        <div class="boxc">@item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2</div>
+        <li class="ui-widget-content ui-corner-tr">
+             @item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2
+            <a title="add this item" class="ui-icon ui-icon-plus">+</a>
+       </li>
       }
+        </ul>
  </div>
                
                

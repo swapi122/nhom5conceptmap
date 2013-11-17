@@ -25,39 +25,49 @@
 <div id="canvas-container">
  <div id="leftbar"> 
     <script src="scripts/jquery-1.10.2.min.js"></script>
-    <script src="scripts/jquery-ui.js"></script> 
+    <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/js_style.js"></script>
+      
     <div id="leftbox">
+       
      <h3>Khái Niệm</h3>
+        <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
                   @foreach (var item in Model.Concepts)
                   {
-
-                         <div class="boxc">@item.ConceptName @item.ConceptID</div>
+                      
+                      <li class="ui-widget-content ui-corner-tr">
+                             @item.ConceptName
+                             <a title="add this item" class="ui-icon ui-icon-plus">+</a>
+                      </li>
                  
                   }
-
+        </ul>
    
     </div>
+    
     @{Html.RenderAction("_LinkOfTopicPartial", "Topic", new { links = Model.Links });}
      </div>
-     <div id="mapd">   </div>
-</div>
+
+     <div id="trash" class="ui-widget-content ui-state-default">   </div>
+ </div>
      <script>
-         $(function () {
+         //$(function () {
 
-             $('.boxc').draggable({
-                 cursor: 'move',
-                 revert: true 
-             });
+         //    $('.boxc').draggable({
+         //        cursor: 'move',
+         //        revert: true 
+         //    });
 
-             $('#mapd').droppable({
-                 accept: '.boxc',
-                 drop: handleDropEvent
-             });
+         //    $('#mapd').droppable({
+         //        accept: '.boxc',
+         //        drop: handleDropEvent
+         //    });
 
-             function handleDropEvent(event, ui) {
-                 draggable.appendTo('.boxc')
-             }
-         });
+         //    function handleDropEvent(event, ui) {
+         //        draggable.appendTo('.boxc')
+         //    }
+         //});
+        
     </script>
 
     <footer>
