@@ -7,9 +7,9 @@ $(document).ready(function ()
 
         $("li", $gallery).draggable({
             cancel: "a.ui-icon",
-            revert: "invalid",
+            revert: true,
             containment: "document",
-            helper: "clone",
+            helper: "original",
             cursor: "move"
         });
 
@@ -36,6 +36,7 @@ $(document).ready(function ()
                   $("<ul class='gallery ui-helper-reset'/>").appendTo($trash);
                 $item.find("a.ui-icon-plus").remove();
                 $item.append(remove_item_icon).appendTo($list).fadeIn(function () {
+                    $item.draggable({ revert: false, containment: '#trash' });
                     //$item.css({ "width": "100px","border":"2px solid orange","border-radius":"5px","background-color":"orange","color":"white"})
                 });
             });
@@ -51,6 +52,16 @@ $(document).ready(function ()
                   .append(add_item_icon)
                   .appendTo($gallery)
                   .fadeIn();
+            });
+        }
+
+        function restoreItem($item) {
+            $item.draggable({
+                cancel: "a.ui-icon",
+                revert: true,
+                containment: "document",
+                helper: "original",
+                cursor: "move",
             });
         }
         $("ul.gallery > li").click(function (event) {
