@@ -315,7 +315,6 @@
     <Content Include="Views\TrangChu\Index.cshtml" />
     <Content Include="Views\TrangChu\_TrinhDoPartial.cshtml" />
     <Content Include="Views\Shared\_DrawLayout.cshtml" />
-    <Content Include="Views\Topic\_dropdownListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

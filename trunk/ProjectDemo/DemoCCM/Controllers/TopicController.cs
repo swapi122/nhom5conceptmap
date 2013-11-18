@@ -14,33 +14,14 @@ namespace DemoCCM.Controllers
 
         ConceptMapDBContext db = new ConceptMapDBContext();
       
-        public PartialViewResult _dropdownListPartial(String LevelID, String topicId1)
-        {
-            List<ConceptsForTopic> ct =
-                db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1) && p.Levels.Contains(LevelID)).ToList();
-            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
-           //=--------------
-            ViewBag.levelId = LevelID;
-            ViewBag.topicId = topicId1;
-            //--------------------------
-            return PartialView(ct);
-        }
-
-        //giúp giữ lại những câu hỏi thuộc Câp độ và CHủ đề đang đứng
-        [HttpPost, ActionName("_dropdownListPartial")]
-        public PartialViewResult _dropdownListPartialkkk(String LevelID, String topicId1, string Bien1)
-        {
-            List<ConceptsForTopic> ct =
-                db.ConceptsForTopics.ToList();
-            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
-
-            return PartialView();
-        }
-
-        
-        //tui mun lấy gtri LevelID1, đưa wa Indexxxxx
+       
         public ActionResult Index(String LevelID1, String topicId1, string ConceptID)
         {
+            List<ConceptsForTopic> ct =
+                db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1) && p.Levels.Contains(LevelID1)).ToList();
+            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
+            
+            //----------------------------------------
             ViewBag.levelID2 = LevelID1;
             ViewBag.topicID2 = topicId1;
            
@@ -53,6 +34,14 @@ namespace DemoCCM.Controllers
         [HttpPost, ActionName("Index")]
         public ActionResult Indexxx(String LevelID1, String topicId1, String ConceptID)
         {
+            List<ConceptsForTopic> ct =
+                db.ConceptsForTopics.Where(p => p.TopicID.Equals(topicId1) && p.Levels.Contains(LevelID1)).ToList();
+            ViewBag.cd = new SelectList(ct, "ConceptID", "Question");//tham số thứ chứa Field load lên
+            
+            //-------------------------------
+            ViewBag.levelID2 = LevelID1;
+            ViewBag.topicID2 = topicId1;
+            //-------------------------------
             Map m = getMap(LevelID1, topicId1, ConceptID);
             return View(m);
         }

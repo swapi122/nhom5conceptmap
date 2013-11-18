@@ -14,7 +14,22 @@
                 <img src="photos/logocc2.png" alt="Concept Map">
                     <div id="centerbartop">
                         <h4>Câu Hỏi Trọng Tâm</h4>
-                        @{Html.RenderAction("_dropdownListPartial", "Topic", new { LevelID = levelID3, topicId1 = topicID3 });}
+                        @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post, new { id = "formFillter" }))
+                        {
+                                @Html.DropDownList("ConceptID", ViewBag.cd as SelectList, new { id = "ddlMenu" })
+   
+                        }
+                       
+                            <script type='text/javascript'>
+                                $(document).ready();
+                                $(function () {
+                                    $('#ddlMenu').change(function () {
+                                        $('#formFillter').submit();
+                                    });
+                                });
+                            </script>
+                     
+               
                     </div>
 
             </div>
