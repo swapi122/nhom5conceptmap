@@ -8,6 +8,6 @@
         $("ul.nav_left li a").click(function(){
             $('.highlight_stay').removeClass('highlight_stay');
             $(this).addClass('highlight_stay');
-			alert(" roi ne");
+			
         });
  });

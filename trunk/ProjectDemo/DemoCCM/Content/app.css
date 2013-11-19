@@ -96,8 +96,7 @@ div {
 	box-shadow: 1px 2px 1px #808080;
     border: 1px solid #AAA;
     border-radius:2px;
-    
-   
+     
 }
 div#toolbar img {
     height:50px;
@@ -115,6 +114,8 @@ div#toolbar img {
    
   }
   .gallery li {
+      top:0;
+      left:0;
       list-style:none; 
       width:140px;
       float:left; 
@@ -123,9 +124,20 @@ div#toolbar img {
       text-align: center;
       color:white;
       border-radius:5px;
+      border:2px solid #78b7fc;
       background-color:#78b7fc;}
+
+  /*.gallery li:hover {
+      
+      border:5px solid orange;
+      }*/
   .gallery li a { 
-      float: right; 
+      float: right;
+      cursor:pointer;
+     
+      font-weight:bolder;   
 
   }
- 
+ ul.gallery li.highlight,ul.gallery li.highlight_stay{
+	 border:2px solid orange;
+ }
