@@ -13,6 +13,35 @@ article, aside, figure, footer, header, hgroup, nav, section {
   display:block;
 }
 
+#menufirt{
+margin: auto;
+margin-right: 10px;
+width: 970px;
+height: 32px;
+line-height: 25px;
+
+}
+ #menufirt ul {
+        float: right;
+        text-decoration: none;
+        padding: 0px;
+        margin: 0px;
+    }
+#menufirt li {
+float: left;
+margin-left: 10px;
+padding: 0px;
+list-style-type: none;
+text-decoration: none;
+}
+
+#menufirt a{
+color: #3a3a3a;
+font-family: sans-serif,Arial;
+font-size: 14px;
+text-decoration: none;
+border: none;
+}
 body { 
   font: normal .80em arial, sans-serif;
   background-color:#F6F6F6;
@@ -68,7 +97,7 @@ h5, h6 {
 a, a:hover { 
   outline: none;
   text-decoration: underline;
-  color: #09D4FF;
+  color: #404040;
 }
 
 a:hover { 
@@ -192,15 +221,15 @@ div#logo_text img {
   margin: 0 auto 0 auto;
 }
 #site_content { 
-  width: 65%;
-  overflow: hidden;
-  margin: 0;
-  border: 1px solid #ddd;
-  border-top:none;
-  min-height:500px;
-  height:auto;
-  float:left;
-  background-color:#fff;
+ width: 84.8%;
+overflow: hidden;
+margin: 0;
+border: 1px solid #ddd;
+border-top: none;
+min-height: 500px;
+height: auto;
+float: left;
+background-color: #fff;
   
 } 
 /*-- left nav --*/
@@ -339,7 +368,16 @@ ul.sf-menu li {
   float: left;
   position: relative;
 }
-  
+    ul.sf-menu li.welcome {
+        margin-right:20%;
+        font-size:20px;
+       color:#eddddd;
+    }
+   ul.sf-menu .logout {
+        margin-right:20%;
+        font-size:20px;
+       color:#eddddd;
+    }
 ul.sf-menu li:hover { 
   visibility: inherit; /* fixes IE7 'sticky bug' */ 
 }
@@ -375,7 +413,10 @@ nav {
   background: transparent url(images/menubar.png) repeat;
 }
 ul#nav { 
-  float: right;
+  
+float: right;
+width: 1200px;
+}
 }
 
 ul#nav ul { 

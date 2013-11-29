@@ -22,6 +22,7 @@ namespace DemoCCM.Models
         public string UserID { get; set; }
         public string UserName { get; set; }
         public string Pass { get; set; }
+        public string PassSalt { get; set; }
     
         public virtual ICollection<MapOfUser> MapOfUsers { get; set; }
     }

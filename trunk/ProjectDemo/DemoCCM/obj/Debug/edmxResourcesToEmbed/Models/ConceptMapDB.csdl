@@ -7,6 +7,7 @@
     <EntitySet Name="Links" EntityType="ConceptModel.Link" />
     <EntitySet Name="LinkOfMaps" EntityType="ConceptModel.LinkOfMap" />
     <EntitySet Name="MapOfUsers" EntityType="ConceptModel.MapOfUser" />
+    <EntitySet Name="sysdiagrams" EntityType="ConceptModel.sysdiagram" />
     <EntitySet Name="Topics" EntityType="ConceptModel.Topic" />
     <EntitySet Name="TopicOfLevels" EntityType="ConceptModel.TopicOfLevel" />
     <EntitySet Name="Users" EntityType="ConceptModel.User" />
@@ -38,7 +39,7 @@
       <End Role="MapOfUser" EntitySet="MapOfUsers" />
       <End Role="LinkOfMap" EntitySet="LinkOfMaps" />
     </AssociationSet>
-    <AssociationSet Name="FK_MapOfUser_User" Association="ConceptModel.FK_MapOfUser_User">
+    <AssociationSet Name="FK_MapOfUser_User1" Association="ConceptModel.FK_MapOfUser_User1">
       <End Role="User" EntitySet="Users" />
       <End Role="MapOfUser" EntitySet="MapOfUsers" />
     </AssociationSet>
@@ -108,9 +109,19 @@
     </Key>
     <Property Name="MapID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="MapName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="UserID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="LinkOfMaps" Relationship="ConceptModel.FK_LinkOfMap_MapOfUser" FromRole="MapOfUser" ToRole="LinkOfMap" />
-    <NavigationProperty Name="User" Relationship="ConceptModel.FK_MapOfUser_User" FromRole="MapOfUser" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="ConceptModel.FK_MapOfUser_User1" FromRole="MapOfUser" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Topic">
     <Key>
@@ -137,10 +148,11 @@
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="UserID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Pass" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="MapOfUsers" Relationship="ConceptModel.FK_MapOfUser_User" FromRole="User" ToRole="MapOfUser" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Pass" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="PassSalt" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="MapOfUsers" Relationship="ConceptModel.FK_MapOfUser_User1" FromRole="User" ToRole="MapOfUser" />
   </EntityType>
   <Association Name="FK_ConceptsForTopic_ConceptAll">
     <End Role="ConceptAll" Type="ConceptModel.ConceptAll" Multiplicity="1" />
@@ -226,7 +238,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MapOfUser_User">
+  <Association Name="FK_MapOfUser_User1">
     <End Role="User" Type="ConceptModel.User" Multiplicity="1" />
     <End Role="MapOfUser" Type="ConceptModel.MapOfUser" Multiplicity="*" />
     <ReferentialConstraint>

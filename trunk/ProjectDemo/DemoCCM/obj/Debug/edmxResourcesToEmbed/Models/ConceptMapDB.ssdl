@@ -7,6 +7,7 @@
     <EntitySet Name="Link" EntityType="ConceptModel.Store.Link" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LinkOfMap" EntityType="ConceptModel.Store.LinkOfMap" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MapOfUser" EntityType="ConceptModel.Store.MapOfUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="ConceptModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Topic" EntityType="ConceptModel.Store.Topic" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TopicOfLevel" EntityType="ConceptModel.Store.TopicOfLevel" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="User" EntityType="ConceptModel.Store.User" store:Type="Tables" Schema="dbo" />
@@ -34,7 +35,7 @@
       <End Role="MapOfUser" EntitySet="MapOfUser" />
       <End Role="LinkOfMap" EntitySet="LinkOfMap" />
     </AssociationSet>
-    <AssociationSet Name="FK_MapOfUser_User" Association="ConceptModel.Store.FK_MapOfUser_User">
+    <AssociationSet Name="FK_MapOfUser_User1" Association="ConceptModel.Store.FK_MapOfUser_User1">
       <End Role="User" EntitySet="User" />
       <End Role="MapOfUser" EntitySet="MapOfUser" />
     </AssociationSet>
@@ -97,7 +98,17 @@
     </Key>
     <Property Name="MapID" Type="varchar" Nullable="false" MaxLength="10" />
     <Property Name="MapName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Topic">
     <Key>
@@ -120,9 +131,10 @@
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="10" />
-    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Pass" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="200" />
+    <Property Name="PassSalt" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <Association Name="FK_ConceptsForTopic_ConceptAll">
     <End Role="ConceptAll" Type="ConceptModel.Store.ConceptAll" Multiplicity="1" />
@@ -196,7 +208,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MapOfUser_User">
+  <Association Name="FK_MapOfUser_User1">
     <End Role="User" Type="ConceptModel.Store.User" Multiplicity="1" />
     <End Role="MapOfUser" Type="ConceptModel.Store.MapOfUser" Multiplicity="*" />
     <ReferentialConstraint>

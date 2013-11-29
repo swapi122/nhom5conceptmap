@@ -2,13 +2,15 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css", "~/Content/style.css", "~/Content/LoginStyle.css", "~/Content/RegisterStyle.css")
     @Scripts.Render("~/Scripts/js")
     
 </head>
 <body>
   <div id="main">
+ 
     <header>
+        
       <div id="logo">
         <div id="logo_text" style="float: left;">
           <img src="photos/logocc.png" alt="Concept Map">
@@ -17,15 +19,35 @@
       <nav>
         <div id="menu_container">
           <ul class="sf-menu" id="nav">
-            <li>@Html.ActionLink("Home","Index","TrangChu")</li>
-            <li>@Html.ActionLink("Giới Thiệu","Index","TrangChu")</li>
-            <li>@Html.ActionLink("Liên Hệ","Index","TrangChu")</li>
-            <li>@Html.ActionLink("Diễn Đàn","Index","TrangChu")</li>
-            <li>@Html.ActionLink("Học Online","Index","TrangChu")</li>
-           
+               @if (Request.IsAuthenticated)
+               {
+                 
+                     <li><a>Chào <strong> @Html.Encode(User.Identity.Name)</strong></a></li>
+                   <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
+                  <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
+               <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
+               <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
+                <li> @Html.ActionLink("[Logout]", "Index", "TrangChu")</li>
+               }
+               else
+               {
+                     
+                   <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
+                  <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
+               <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
+               <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
+          
+               }
+            
+            
           </ul>
+  
         </div>
+
       </nav>
+     
     </header>
     <div id="main_content">
      
@@ -34,11 +56,17 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryval")
         @RenderSection("scripts", required: false)
+</div>
+     
 
-        <div class="right_content"></div>
-     </div>
+ <div id="site_content">
+       <div class="container">
+    @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+    @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+           </div>
+</div>
 	<footer>
-      <p>@Html.ActionLink("Home","Index","TrangChu") | <a href="#"> About </a>|<a href="#"> Contact Us </a></p>
+      <p>@Html.ActionLink("Home", "Index", "TrangChu") | <a href="#"> About </a>|<a href="#"> Contact Us </a></p>
       <p>Copyright © MrWind | <a href="#">follow me: Https://facebook.com/example.</a></p>
     </footer>
     <script>
