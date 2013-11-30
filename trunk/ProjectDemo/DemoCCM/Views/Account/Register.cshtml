@@ -1,0 +1,54 @@
+﻿
+@model DemoCCM.Models.User
+@{
+    ViewBag.Title = "Register";
+    
+}
+@Styles.Render("~/Content/RegisterStyle.css","~/Content/style.css")
+
+   <div class="idregister">
+         <h1>Đăng Kí</h1>
+        <div class="Regis textBox">
+           
+            @using (Html.BeginForm("Register","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
+            {
+                 @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+                <p>
+                    @Html.LabelFor(m => m.UserName) 
+                    @Html.TextBoxFor(m=>m.UserName,new {placeholder="Username or Email"})
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Pass)
+                    @Html.PasswordFor(m => m.Pass, new {placeholder="Password"})
+                    @Html.ValidationMessageFor(m => m.Pass)
+                </p>
+                 <p class="submit">
+                    <input type="submit" name="commit" value="Đăng Kí">
+                </p>
+                @*
+                <p class="remember_me">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                </p>*@
+                <div class="login-help">
+            <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a>.</p>
+        </div>
+            }
+        </div>
+       
+          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+       </script>
+       <script>
+           $(".Regis").hide()
+           $(".idregister h1").click(function () {
+               $(".Regis").toggle();
+           });
+      </Script>  
+  </div>
+   
+
+
+ 
+
