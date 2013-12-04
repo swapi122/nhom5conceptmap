@@ -72,5 +72,22 @@ $(document).ready(function ()
             }
             return false;
         });
+
+
+        $("ul.gallery2 > li").click(function (event) {
+            var $item = $(this),
+              $target = $(event.target);
+            $('.highlight_stay').removeClass('highlight_stay');
+            $(this).addClass('highlight_stay');
+
+            if ($target.is("a.ui-icon-plus")) {
+                addItem($item);
+                $item.draggable('enable');
+            } else if ($target.is("a.ui-icon-minus")) {
+                removeItem($item);
+
+            }
+            return false;
+        });
     });
 });

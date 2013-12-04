@@ -1,20 +1,20 @@
 ﻿@model DemoCCM.Models.Map
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DrawLayout.cshtml";
     String levelID3 = ViewBag.levelID2 as String;
     String topicID3 = ViewBag.topicID2 as String;
     
+    
 }
-
-<div id="container">
-	<header>
-  	<div id="topbar">
-    		<div id="toolbar">
-                <img src="photos/logocc2.png" alt="Concept Map">
-                    <div id="centerbartop">
-                        <h4>Câu Hỏi Trọng Tâm</h4>
-                        @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post, new { id = "formFillter" }))
+<div id="canvas-container">
+    <div id="container"></div> 
+    <div id="tool-container">
+        <div id="toolTOPbar">
+            <a>Câu Hỏi Trọng Tâm</a>
+            <div id="quest">
+             @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post, new { id = "formFillter" }))
                         {
                                 @Html.DropDownList("ConceptID", ViewBag.cd as SelectList, new { id = "ddlMenu" })
    
@@ -23,69 +23,29 @@
                             <script type='text/javascript'>
                                 $(document).ready();
                                 $(function () {
-                                    $('#ddlMenu').change(function () {
-                                        $('#formFillter').submit();
-                                    });
+                                    $('#ddlMenu').change
+                                        (function () {
+                                            $('#formFillter').submit();
+                                        });
                                 });
                             </script>
-                     
-               
-                    </div>
 
             </div>
-   		</div>
-	</header>
-
-
-<div id="canvas-container">
- <div id="leftbar"> 
-    <script src="scripts/jquery-1.10.2.min.js"></script>
-    <script src="scripts/jquery-ui.js"></script>
-    <script src="scripts/js_style.js"></script>
-      
-    <div id="leftbox">
-       
-     <h3>Khái Niệm</h3>
-        <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                  @foreach (var item in Model.Concepts)
-                  {
-                      
-                      <li class="ui-widget-content ui-corner-tr">
-                             @item.ConceptName
-                             <a title="add this item" class="ui-icon ui-icon-plus">+</a>
-                      </li>
-                 
-                  }
-        </ul>
-   
-    </div>
+        </div>
+        <div id="toolAdd">     
+             <div id="concept1"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName")) </div>
+             <div id="link">@Html.DropDownList("LinkID", new SelectList(Model.Links, "LinkID", "Text"))</div>
+             <div id="concept2"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName"))</div>
+             <button class="addbutton">Thêm</button> 
+             <button class="removebutton">Xóa</button>
+        </div>
+       <div id="area"></div>
+  </div>
     
-    @{Html.RenderAction("_LinkOfTopicPartial", "Topic", new { links = Model.Links });}
-     </div>
 
-     <div id="trash" class="ui-widget-content ui-state-default">   </div>
- </div>
-     <script>
-         //$(function () {
+</div> 
 
-         //    $('.boxc').draggable({
-         //        cursor: 'move',
-         //        revert: true 
-         //    });
-
-         //    $('#mapd').droppable({
-         //        accept: '.boxc',
-         //        drop: handleDropEvent
-         //    });
-
-         //    function handleDropEvent(event, ui) {
-         //        draggable.appendTo('.boxc')
-         //    }
-         //});
-        
-    </script>
-
-    <footer>
+<footer>
     	<div id="bottombar"> 
             <div id="centerbarbot">
                 @*@Html.ActionLink("Save",*@
@@ -96,4 +56,14 @@
             </div>
     	</div>
     <//footer>
-</div>
+<script src="scripts/jquery-1.10.2.min.js"></script>
+<script src="scripts/jquery-ui.js"></script>
+<script src="scripts/jquery.conceptmap.js"></script>
+<script src="scripts/textareaLoader.js"></script>
+<script type="text/javascript">
+    $(function () {
+       
+	    $("#container").conceptMap({ 'tripleLoader': { func: textareaLoadEngineT, args: {} } });
+	    
+});
+</script>
