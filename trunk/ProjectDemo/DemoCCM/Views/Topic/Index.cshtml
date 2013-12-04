@@ -13,7 +13,7 @@
     <div id="tool-container">
         <div id="toolTOPbar">
             <a>Câu Hỏi Trọng Tâm</a>
-            <div id="quest">
+            <div id="quest" class="dropdown">
              @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post, new { id = "formFillter" }))
                         {
                                 @Html.DropDownList("ConceptID", ViewBag.cd as SelectList, new { id = "ddlMenu" })
@@ -32,12 +32,15 @@
 
             </div>
         </div>
+        <div class="separator"></div>
         <div id="toolAdd">     
-             <div id="concept1"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName")) </div>
+             <div id="concept1" > @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName")) </div>
              <div id="link">@Html.DropDownList("LinkID", new SelectList(Model.Links, "LinkID", "Text"))</div>
              <div id="concept2"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName"))</div>
-             <button class="addbutton">Thêm</button> 
-             <button class="removebutton">Xóa</button>
+            <div id="btncenter">
+                 <button class="addbutton">Thêm</button> 
+                 <button class="removebutton">Xóa</button>
+             </div>
         </div>
        <div id="area"></div>
   </div>

@@ -49,14 +49,14 @@ function addCheckBox() {
 };
 function removeInData(sl) {
     for (var i = 0; i < sl.length; i++) {
-        alert(data.length);
+        //alert(data.length);
         data.splice(sl[i], 1);
     }
    
 };
 function isExist(da, d) {
     //alert(da.concept1);
-    if (da.concept1 == d.concept1 && da.link == d.link && da.concept2 == d.concept2) {
+    if (da.concept1 == d.concept1 && da.relation == d.relation && da.concept2 == d.concept2) {
         //alert("so sanh bang het");
         return true;
     }
@@ -67,6 +67,25 @@ function checkExistData(ndata) {
     for (var i = 0; i < l; i++) {
         if (isExist(data[i], ndata)) {
             //alert("tim duoc 1 thang trung");
+            return true;
+        }    
+    }
+    return false;
+};
+function isExistDifRelation(da, d) {
+    //alert(da.concept1);
+    if (da.concept1 == d.concept1 && da.relation != d.relation && da.concept2 == d.concept2) {
+       // alert("thay relation");
+        return true;
+    }
+    return false;
+};
+function checkExistDataDifRelation(ndata) {
+    var l = data.length;
+    for (var i = 0; i < l; i++) {
+        if (isExistDifRelation(data[i], ndata)) {
+            //alert("tim duoc 1 thang trung");
+            data[i].relation = ndata.relation;
             return true;
         }    
     }
@@ -85,11 +104,12 @@ $(".addbutton").click(function (event) {
         if (flag) {
             data.push(da);
             flag = false;
-        }else{
-            if (!checkExistData(da)) {
-                data.push(da);
-                
-            } else {
+        } else {
+            if (checkExistDataDifRelation(da)) {
+                alert("Đã thay đổi liên kết");
+            }else if (!checkExistData(da)) {
+                data.push(da);      
+            }else{
                 alert("Khái niệm đã tồn tại");
             }
         }
@@ -107,7 +127,7 @@ $(".removebutton").click(function (event) {
         $(na).remove();
     });
     $("#ckbox:checked").closest("input").remove();
-    alert(selected.toString());
+    //alert(selected.toString());
     selected.sort(function (a, b) { return b - a });
     removeInData(selected);
 });
