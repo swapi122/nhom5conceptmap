@@ -41,9 +41,9 @@ function addCheckBox() {
         var newCheckBox = document.createElement('input');
         newCheckBox.type = 'checkbox';
         newCheckBox.value = i;
-        newCheckBox.id = "ckbox";
+        newCheckBox.id = "ckbox"+i;
         parentElement.appendChild(newCheckBox);
-        var a = "<a id='n" + i + "'>" + data[i].concept1 + " " + data[i].relation + " " + data[i].concept2 + "</a></br>";
+        var a = "<label id='n" + i + "' for='ckbox"+i+"'>" + data[i].concept1 + " " + data[i].relation + " " + data[i].concept2 + "</label></br>";
         $("#area").append(a);
     }
 };
@@ -123,7 +123,7 @@ $(".removebutton").click(function (event) {
     var selected = new Array();
     $('#area input:checked').each(function () {    
         selected.push($(this).attr('value'));
-        var na = "a#n" + $(this).attr('value');
+        var na = "label#n" + $(this).attr('value');
         $(na).remove();
     });
     $("#ckbox:checked").closest("input").remove();

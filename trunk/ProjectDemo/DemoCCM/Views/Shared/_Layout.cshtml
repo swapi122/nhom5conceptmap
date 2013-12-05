@@ -2,15 +2,13 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css", "~/Content/style.css", "~/Content/LoginStyle.css", "~/Content/RegisterStyle.css")
+    @Styles.Render("~/Content/css", "~/Content/style.css")
     @Scripts.Render("~/Scripts/js")
     
 </head>
 <body>
   <div id="main">
- 
-    <header>
-        
+    <header> 
       <div id="logo">
         <div id="logo_text" style="float: left;">
           <img src="photos/logocc.png" alt="Concept Map">
@@ -19,27 +17,26 @@
       <nav>
         <div id="menu_container">
           <ul class="sf-menu" id="nav">
-               @if (Request.IsAuthenticated)
+               @*@if (Request.IsAuthenticated)
                {
                  
-                     <li><a>Chào <strong> @Html.Encode(User.Identity.Name)</strong></a></li>
-                   <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
-                  <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
+                  <li><a>Chào <strong> @Html.Encode(User.Identity.Name)</strong></a></li>
+                 <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
                  <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
-               <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
-               <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
-                <li> @Html.ActionLink("[Logout]", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
+                 <li> @Html.ActionLink("[Logout]", "Index", "TrangChu")</li>
                }
                else
-               {
-                     
-                   <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
+               {*@
+                  <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
-                 <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
-               <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
-               <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
+                  <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
+                  <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
+                  <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
           
-               }
+              @* }*@
             
             
           </ul>
@@ -60,10 +57,13 @@
      
 
  <div id="site_content">
-       <div class="container">
-    @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
-    @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
-           </div>
+    
+</div>
+   @* <div class="right_content">
+        @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+        @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+
+    </div>*@
 </div>
 	<footer>
       <p>@Html.ActionLink("Home", "Index", "TrangChu") | <a href="#"> About </a>|<a href="#"> Contact Us </a></p>
@@ -82,6 +82,6 @@
             });
         });
   </script>
-</div>
+
 </body>
 </html>
