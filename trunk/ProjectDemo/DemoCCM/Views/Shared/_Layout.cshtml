@@ -9,6 +9,12 @@
 <body>
   <div id="main">
     <header> 
+    @*          @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+              @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}*@
+                <div id="login-register">
+                @Html.ActionLink("Login", "Login", "Account")
+                @Html.ActionLink("Register", "Register", "Account")
+                    </div>
       <div id="logo">
         <div id="logo_text" style="float: left;">
           <img src="photos/logocc.png" alt="Concept Map">
@@ -35,7 +41,7 @@
                   <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
-          
+             
               }
             
             
@@ -60,8 +66,7 @@
     
 </div>
    <div class="right_content">
-        @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
-        @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+       
 
     </div>
 </div>

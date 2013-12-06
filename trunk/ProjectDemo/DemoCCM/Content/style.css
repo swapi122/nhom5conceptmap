@@ -257,7 +257,11 @@ ul.nav_left li a {
         /*background-color:red;*/
         }
 
-
+#login-register {
+    position:absolute;
+    top:0;
+    right:0;
+}
 .content { 
   text-align: left;
   width: 700px;
