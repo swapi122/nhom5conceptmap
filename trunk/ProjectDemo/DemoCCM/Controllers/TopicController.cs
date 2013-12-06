@@ -15,15 +15,46 @@ namespace DemoCCM.Controllers
         ConceptMapDBContext db = new ConceptMapDBContext();
         [HttpPost]
         public ActionResult Save(Link[] links)
-        {
+        {/*
             Map m= new Map();
             List <Link> listlink= new List<Link>();
             List<ConceptAll> concepts = new List<ConceptAll>();
-            //for (int i = 0; i < links.Length; i++)
+            for (int i = 0; i < links.Length; i++)
             {
-                //listlink.Add(db.Links.FirstOrDefault(l => l.ConceptID1.Equals(links[i].ConceptID1) && l.ConceptID2.Equals(links[i].ConceptID2)));
-            }
+                String cc1 = links[i].ConceptID1;
+                String cc2 = links[i].ConceptID2;
+                String text = links[i].Text;
+                Link li = db.Links.FirstOrDefault(l => l.ConceptID1.Equals(cc1));
+                listlink.Add(li);
+            }*/
             return View(links);
+        }
+        private Link CheckLink(Link link)
+        {
+            Link li = db.Links.FirstOrDefault(l => l.ConceptID1.Equals(link.ConceptID1)&&l.ConceptID2.Equals(link.ConceptID2));
+            if (li!=null)
+                if (li.Text.Equals(link.Text))
+                    return li;
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult DanhGia(Link[] links)
+        {
+            Map m = new Map();
+            List<Link> listlink = new List<Link>();
+            for (int i = 0; i < links.Length; i++)
+            {
+                Link li = links[i];
+                if ((li = CheckLink(li)) == null)
+                {
+                    li = links[i];
+                    li.Result = false;
+                }
+                else li.Result = true;
+                listlink.Add(li);
+            }
+            return View(listlink);
         }
        
         public ActionResult Index(String LevelID1, String topicId1, string ConceptID)

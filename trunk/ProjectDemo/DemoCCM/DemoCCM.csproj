@@ -330,6 +330,7 @@
     <Content Include="Views\Account\LogOff.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Topic\Save.cshtml" />
+    <Content Include="Views\Topic\DanhGia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

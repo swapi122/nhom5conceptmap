@@ -182,7 +182,20 @@ $("#btnSave").click(function (event) {
         }
     });
 })
-$("#btnSave").click(function (event) {
-    
 
+$("#btnDanhGia").click(function (event) {
+    var links = [];
+    for (var i = 0; i < data.length; i++) {
+        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation })
+    }
+    $.ajax({
+        url: '/Topic/DanhGia',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(links),
+        success: function (resp) {
+
+            alert(resp);
+        }
+    });
 })
