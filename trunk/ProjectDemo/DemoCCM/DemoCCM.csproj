@@ -171,9 +171,6 @@
     <Compile Include="Models\MapOfUser.cs">
       <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>ConceptMapDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Topic.cs">
       <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
@@ -332,6 +329,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\LogOff.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Topic\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -114,7 +114,7 @@ namespace WebsiteBanHang.Controllers
 
                         var systemUser = db.Users.Create();
 
-                        systemUser.UserID = Guid.NewGuid().ToString();
+                 
                         systemUser.UserName = model.UserName;
                         systemUser.Pass =encrPass;
                         systemUser.PassSalt = crypto.Salt;

@@ -92,12 +92,15 @@ function checkExistDataDifRelation(ndata) {
     return false;
 };
 var data = [];
+
 $(".addbutton").click(function (event) {
     
     var cc1 = $("#concept1 :selected").text();
+    var ccid1 = $("#concept1 :selected").val();
     var link = $("#link :selected").text();
     var cc2 = $("#concept2 :selected").text();
-    var da = { concept1: cc1, relation: link, concept2: cc2 };
+    var ccid2 = $("#concept2 :selected").val();
+    var da = { concept1: cc1, relation: link, concept2: cc2,conceptid1:ccid1,conceptid2:ccid2};
     if (cc1 == cc2) {
         alert("Khái niệm giống nhau!!")
     } else {
@@ -142,6 +145,7 @@ function textareaLoadEngineT(conceptMap, options) {
     return data;
 };
 var flag = true;
+
 function textareaLoadEngine(conceptMap, options) {
     var triples = [];
     var $facts = $("#concepts");
@@ -162,4 +166,23 @@ function textareaLoadEngine(conceptMap, options) {
         
     return triples;
 };
-      
+
+$("#btnSave").click(function (event) {
+    var links = [];
+    for (var i = 0; i < data.length; i++) {
+        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation })
+    }
+    $.ajax({
+        url: '/Topic/Save',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(links),
+        success: function (resp) {
+            alert(resp);
+        }
+    });
+})
+$("#btnSave").click(function (event) {
+    
+
+})

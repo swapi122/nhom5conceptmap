@@ -19,7 +19,6 @@ namespace DemoCCM.Models
             this.MapOfUsers = new HashSet<MapOfUser>();
         }
     
-        public string UserID { get; set; }
         public string UserName { get; set; }
         public string Pass { get; set; }
         public string PassSalt { get; set; }

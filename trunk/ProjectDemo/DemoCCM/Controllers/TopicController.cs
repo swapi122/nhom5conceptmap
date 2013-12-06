@@ -13,7 +13,18 @@ namespace DemoCCM.Controllers
         // GET: /ChuDe/
 
         ConceptMapDBContext db = new ConceptMapDBContext();
-      
+        [HttpPost]
+        public ActionResult Save(Link[] links)
+        {
+            Map m= new Map();
+            List <Link> listlink= new List<Link>();
+            List<ConceptAll> concepts = new List<ConceptAll>();
+            //for (int i = 0; i < links.Length; i++)
+            {
+                //listlink.Add(db.Links.FirstOrDefault(l => l.ConceptID1.Equals(links[i].ConceptID1) && l.ConceptID2.Equals(links[i].ConceptID2)));
+            }
+            return View(links);
+        }
        
         public ActionResult Index(String LevelID1, String topicId1, string ConceptID)
         {

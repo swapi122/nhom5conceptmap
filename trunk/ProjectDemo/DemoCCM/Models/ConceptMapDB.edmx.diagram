@@ -4,17 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7527d94c68144bef8f3e5fc96b89d353" Name="Diagram1">
+      <Diagram DiagramId="e8fed400f9d6413faf6df9f5c56a2190" Name="Diagram1">
         <EntityTypeShape EntityType="ConceptModel.ConceptAll" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.ConceptsForTopic" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.Level" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.Link" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.LinkOfMap" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.MapOfUser" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConceptModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.Topic" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ConceptModel.TopicOfLevel" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConceptModel.User" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConceptModel.User" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <AssociationConnector Association="ConceptModel.FK_ConceptsForTopic_ConceptAll" ManuallyRouted="false" />
         <AssociationConnector Association="ConceptModel.FK_Link_ConceptAll" ManuallyRouted="false" />
         <AssociationConnector Association="ConceptModel.FK_Link_ConceptAll1" ManuallyRouted="false" />

@@ -31,7 +31,6 @@ namespace DemoCCM.Models
         public DbSet<Link> Links { get; set; }
         public DbSet<LinkOfMap> LinkOfMaps { get; set; }
         public DbSet<MapOfUser> MapOfUsers { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<TopicOfLevel> TopicOfLevels { get; set; }
         public DbSet<User> Users { get; set; }

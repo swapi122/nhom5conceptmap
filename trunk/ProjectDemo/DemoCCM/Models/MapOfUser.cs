@@ -21,7 +21,7 @@ namespace DemoCCM.Models
     
         public string MapID { get; set; }
         public string MapName { get; set; }
-        public string UserID { get; set; }
+        public string UserName { get; set; }
     
         public virtual ICollection<LinkOfMap> LinkOfMaps { get; set; }
         public virtual User User { get; set; }

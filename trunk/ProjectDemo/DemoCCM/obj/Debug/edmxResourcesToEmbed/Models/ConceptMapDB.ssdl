@@ -7,7 +7,6 @@
     <EntitySet Name="Link" EntityType="ConceptModel.Store.Link" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LinkOfMap" EntityType="ConceptModel.Store.LinkOfMap" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MapOfUser" EntityType="ConceptModel.Store.MapOfUser" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="ConceptModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Topic" EntityType="ConceptModel.Store.Topic" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TopicOfLevel" EntityType="ConceptModel.Store.TopicOfLevel" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="User" EntityType="ConceptModel.Store.User" store:Type="Tables" Schema="dbo" />
@@ -98,17 +97,7 @@
     </Key>
     <Property Name="MapID" Type="varchar" Nullable="false" MaxLength="10" />
     <Property Name="MapName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="Topic">
     <Key>
@@ -129,10 +118,9 @@
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
     </Key>
-    <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Pass" Type="nvarchar" MaxLength="200" />
     <Property Name="PassSalt" Type="nvarchar" MaxLength="200" />
   </EntityType>
@@ -213,10 +201,10 @@
     <End Role="MapOfUser" Type="ConceptModel.Store.MapOfUser" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
-        <PropertyRef Name="UserID" />
+        <PropertyRef Name="UserName" />
       </Principal>
       <Dependent Role="MapOfUser">
-        <PropertyRef Name="UserID" />
+        <PropertyRef Name="UserName" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
