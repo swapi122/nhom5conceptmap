@@ -9,7 +9,7 @@ using   DemoCCM.Models;
 
 namespace DemoCCM.Models
 {
-    [MetadataTypeAttribute(typeof(User.UserMetaData))]
+   // [MetadataTypeAttribute(typeof(User.UserMetaData))]
 
     public partial class User
     {
@@ -17,12 +17,14 @@ namespace DemoCCM.Models
         {
             public UserMetaData() { }
 
-            [Required]
+            [Required(ErrorMessage="{0} không được để trống!")]
             [Display(Name = "User name")]
+
             public string UserName { get; set; }
 
-            [Required]
+            [Required(ErrorMessage="{0} không được để trống!")]
             [DataType(DataType.Password)]
+            [StringLength(100, MinimumLength = 6, ErrorMessage = "{0} dài ít nhất {2} kí tự ")]
             [Display(Name = "Password")]
             public string Pass { get; set; }
 

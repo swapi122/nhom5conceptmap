@@ -15,6 +15,9 @@ namespace DemoCCM.Controllers
         
         public ActionResult Index()
         {
+            string UserName = (Session["UserName"]) as string;
+            ViewBag.user = UserName; 
+
             return View();
         }
         public ActionResult About()

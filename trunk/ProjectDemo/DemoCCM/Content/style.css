@@ -186,10 +186,15 @@ div#logo_text img {
 
         
         }
+
 #menu_container { 
-  width: 1000px;
+  width: 2000px;
   margin: 0 auto 0 auto;
+
 }
+
+
+
 #site_content { 
   width: 65%;
   overflow: hidden;
@@ -249,8 +254,9 @@ ul.nav_left li a {
         width:15%;
         height:300px;
         float:left;
-        background-color:red;
+        /*background-color:red;*/
         }
+
 
 .content { 
   text-align: left;

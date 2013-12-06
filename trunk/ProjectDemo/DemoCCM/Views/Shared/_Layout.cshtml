@@ -17,7 +17,7 @@
       <nav>
         <div id="menu_container">
           <ul class="sf-menu" id="nav">
-               @*@if (Request.IsAuthenticated)
+               @if (Request.IsAuthenticated)
                {
                  
                   <li><a>Chào <strong> @Html.Encode(User.Identity.Name)</strong></a></li>
@@ -26,17 +26,17 @@
                  <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
                  <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
                  <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
-                 <li> @Html.ActionLink("[Logout]", "Index", "TrangChu")</li>
+                 <li> @Html.ActionLink("[Logout]", "LogOff", "Account")</li>
                }
                else
-               {*@
+               {
                   <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
           
-              @* }*@
+              }
             
             
           </ul>
@@ -59,11 +59,11 @@
  <div id="site_content">
     
 </div>
-   @* <div class="right_content">
+   <div class="right_content">
         @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
         @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
 
-    </div>*@
+    </div>
 </div>
 	<footer>
       <p>@Html.ActionLink("Home", "Index", "TrangChu") | <a href="#"> About </a>|<a href="#"> Contact Us </a></p>
