@@ -9,7 +9,7 @@ using   DemoCCM.Models;
 
 namespace DemoCCM.Models
 {
-   // [MetadataTypeAttribute(typeof(User.UserMetaData))]
+   [MetadataTypeAttribute(typeof(User.UserMetaData))]
 
     public partial class User
     {

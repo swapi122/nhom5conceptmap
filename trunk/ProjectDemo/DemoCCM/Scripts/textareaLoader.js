@@ -136,7 +136,9 @@ $(".removebutton").click(function (event) {
     selected.sort(function (a, b) { return b - a });
     removeInData(selected);
 });
-$(".newbutton").click(function (event) {
+
+$(".newbutton").click(function (event)
+{
     var r = confirm("Bạn có muốn tạo mới concept map không");
     if (r == true) {
         data = [];
@@ -149,7 +151,8 @@ $(".newbutton").click(function (event) {
 });
 
 
-function textareaLoadEngineT(conceptMap, options) {
+function textareaLoadEngineT(conceptMap, options)
+{
     $(".addbutton").click(function (event) {
         conceptMap.loadFacts(this.value);
     });
@@ -215,19 +218,21 @@ $(".btnDanhGia").click(function (event) {
         data: JSON.stringify(links),
         success: function (resp) {
             alert(resp);
-            //var x = resp.split("\n");
-            //for (var i = 0; i < x.length ; i++) {
-            //    if (!find(x[i])) {
-            //        var da = x[i].trim().split("|");
-            //        for (var j = 0; j < data.length; j++) {
-            //            if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
-            //                data[j].relation += "(flase)";
-            //            }
-            //        }
 
-            //    }
-            //}
-            return resp;
+            for (var i = 0; i < x.length ; i++) {
+                if (!find(x[i])) {
+                    var da = x[i].trim().split("|");
+                    for (var j = 0; j < data.length; j++) {
+                        if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
+                            data[j].relation += "(flase)";
+
+                        }
+                    }
+                    
+                }
+            }  
+
+
         }
     });
 });

@@ -9,8 +9,7 @@
      
 
     <h>Đăng nhập</h>
-   
-           
+    
             @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
             {
                  @Html.AntiForgeryToken()
@@ -28,11 +27,7 @@
                  <p class="submit">
                     <input type="submit" name="commit" value="Đăng nhập">
                 </p>
-                @*
-                <p class="remember_me">
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-                </p>*@
+               
                 <div class="login-help">
             <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a>.</p>
         </div>

@@ -13,7 +13,8 @@
                      @if (Request.IsAuthenticated)
                      {
                           <a>Chào    <strong>@Html.Encode(User.Identity.Name)</strong></a>
-                          @Html.ActionLink(" Maps  ", "Register", "Account")
+                         @*
+                          @Html.ActionLink(" Maps  ", "Index", "MapOfUser", new {username=User.Identity.Name},null)*@
                            @Html.ActionLink(" Register ", "Register", "Account")
                            @Html.ActionLink(" [LogOff] ", "LogOff", "Account")
                      }
@@ -40,8 +41,6 @@
                   <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
                   <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
              
-           
-            
             
           </ul>
   

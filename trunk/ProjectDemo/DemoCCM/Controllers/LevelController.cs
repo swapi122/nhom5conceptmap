@@ -8,7 +8,6 @@ namespace DemoCCM.Controllers
 {
     public class LevelController : Controller
     {
-
         //
         // GET: /ChuDe/
         ConceptMapDBContext db = new ConceptMapDBContext();
