@@ -183,26 +183,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\ajax-loader.gif" />
-    <Content Include="Content\images\arrows-white.png" />
-    <Content Include="Content\images\bullet.png" />
-    <Content Include="Content\images\closedhand.png" />
-    <Content Include="Content\images\creator-nub-sprite.png" />
-    <Content Include="Content\images\favicon.png" />
-    <Content Include="Content\images\footer.png" />
-    <Content Include="Content\images\graphic.jpg" />
-    <Content Include="Content\images\grid.gif" />
-    <Content Include="Content\images\logo.png" />
     <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\RegisterStyle.css" />
     <Content Include="Photos\concepts\vatli.jpg" />
     <Content Include="Photos\logocc.png" />
-    <Content Include="Content\images\menubar.png" />
-    <Content Include="Content\images\menu_hover.png" />
-    <Content Include="Content\images\openhand.png" />
-    <Content Include="Content\images\plus-minus.png" />
-    <Content Include="Content\images\top.png" />
-    <Content Include="Content\images\transparent.png" />
     <Content Include="Content\stylelevel.css" />
     <Content Include="Content\app.css" />
     <Content Include="Photos\concepts\no_image.png" />

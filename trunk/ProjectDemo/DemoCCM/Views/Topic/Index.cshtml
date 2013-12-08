@@ -12,7 +12,7 @@
     <div id="container"></div> 
     <div id="tool-container">
         <div id="toolTOPbar">
-            <a>Câu Hỏi Trọng Tâm</a>
+            <a>Câu hỏi trọng tâm</a>
             <div id="quest" class="dropdown">
              @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post, new { id = "formFillter" }))
                         {
@@ -38,32 +38,51 @@
              <div id="link">@Html.DropDownList("LinkID", new SelectList(Model.Links, "LinkID", "Text"))</div>
              <div id="concept2"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName"))</div>
             <div id="btncenter">
-                 <button class="addbutton">Thêm</button> 
-                 <button class="removebutton">Xóa</button>
+                <div class="button">
+                     <img  class="addbutton" src="~/Content/images/btn/gnome_list_add.png" />
+                     <a href="#" class="addbutton">Thêm</a>
+                 </div>
+                 <div class="button">
+                     <img  class="removebutton" src="~/Content/images/btn/gnome_edit_delete.png" />
+                     <a href="#" class="removebutton">Xóa</a>
+                 </div>
+                 <div class="button">
+                     <img  class="newbutton" src="~/Content/images/btn/new.png" />
+                     <a href="#" class="newbutton">Tạo mới</a>
+                 </div>
              </div>
         </div>
        <div id="area"></div>
+       <div id="toolData">
+         <div id="centerbarbot">  
+             <div class="button">
+                     <img  class="btnDanhGia" src="~/Content/images/btn/stock_task.png" />
+                     <a href="#" class="btnDanhGia">Đánh giá</a>
+               </div>
+              <div class="button">
+                     <img  class="btnKetQua" src="~/Content/images/btn/file-complete-icon.png" />
+                     <a href="#" class="btnKetQua">Kết quả</a>
+               </div>
+              <div class="button">
+                     <img  class="btnSave" src="~/Content/images/btn/3_disc.png" />
+                     <a href="#" class="btnSave">Lưu</a>
+               </div>
+             <div class="button">
+                     <img  class="btnDowload" src="~/Content/images/btn/cloud_download.png" />
+                     <a href="#" class="btnDowload">Dowload</a>
+               </div>
+           
+        </div>
+       </div>
   </div>
     
 
 </div> 
 
 
-<footer>
-    	<div id="bottombar"> 
-            <div id="centerbarbot">
-                @*@Html.ActionLink("Save",*@
 
-            <button id="btnSave" type="button" >Lưu</button>
+           
 
-            <button id="btnResult" type="button">Kết Quả</button>
-
-            <button id="btnDanhGia" type="button">Đánh Giá</button>
-
-            <button type="button">Làm Lại</button>   
-            </div>
-    	</div>
-    <//footer>
 
 
 <script src="scripts/jquery-1.10.2.min.js"></script>

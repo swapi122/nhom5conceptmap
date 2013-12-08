@@ -314,7 +314,8 @@
 	 this.$container.prepend($concept);
 	 $concept.css("left", concept.pos.x + "px").css("top", concept.pos.y + "px");
 	 
-	 $concept.draggable({
+           $concept.draggable({
+               cursor:"move",
 			      drag: function(event, ui) {
 				var concept = $(this).data("concept");
 				concept.pos.x = ui.offset.left;

@@ -139,8 +139,7 @@ function textareaLoadEngineT(conceptMap, options) {
         conceptMap.loadFacts(this.value);
     });
     $(".removebutton").click(function (event) {
-        conceptMap.loadFacts(this.value);
-       
+        conceptMap.loadFacts(this.value);    
     });
     return data;
 };
@@ -167,7 +166,7 @@ function textareaLoadEngine(conceptMap, options) {
     return triples;
 };
 
-$("#btnSave").click(function (event) {
+$(".btnSave").click(function (event) {
     var links = [];
     for (var i = 0; i < data.length; i++) {
         links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation })
@@ -183,9 +182,9 @@ $("#btnSave").click(function (event) {
     });
 })
 
-$("#btnDanhGia").click(function (event) {
+$(".btnDanhGia").click(function (event) {
     var links = [];
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {        
         links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation })
     }
     $.ajax({

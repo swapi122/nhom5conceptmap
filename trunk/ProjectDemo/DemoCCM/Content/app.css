@@ -3,29 +3,20 @@
 body{
 	margin:0;
 	padding:0;
+    
 	}
 
-
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
 
 #trash{
-    margin:0;
-    padding:0;
+   margin:0;
+   padding:0;
    float:left;
    width:80%;
    height:100%;
 }
 
-#centerbarbot {
-        width: 500px;
-        height: auto;
-        margin:10px auto;
-        
-    }
-#centerbarbot Button {
-    width: 100px;
-    height:35px;    
-    
-    }
+
 #bottombar {
 	position: fixed;
 	width: 100%;
@@ -119,7 +110,6 @@ body{
     width:auto;
     height:700px;
     background-color: rgba(250, 247, 247, 0.45);
- 
     border-left: 1px solid #ccc;
     box-shadow: 0px -1px 10px rgba(50, 50, 50, 0.2);
     /*border-top-left-radius: 6px;
@@ -132,6 +122,7 @@ body{
  
 }
 #toolTOPbar a {
+    
      float:left;
      margin-top:22px;
      margin-left:20px;
@@ -159,7 +150,7 @@ body{
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
     }
-button.addbutton, button.removebutton {
+/*button.addbutton, button.removebutton,button.newbutton{
     background: #e3e3e3;
     border: 1px solid #bbb;
     border-radius: 3px;
@@ -170,20 +161,78 @@ button.addbutton, button.removebutton {
     padding: 8px 0 9px;
     text-align: center;
     text-shadow: 0 1px 0 #fff;
-    width: 100px;
+    width: 80px;
 }
-button.addbutton:hover,button.removebutton:hover{
+button.addbutton:hover,button.removebutton:hover,button.newbutton:hover{
     background: #d9d9d9;
     -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
     box-shadow: inset 0 0 1px 1px #eaeaea;
     color: #222;
     cursor: pointer;
-}
+}*/
 #btncenter {
-    width:210px;
+    width:280px;
     margin:auto;
 
 }
+#btncenter img {
+    width:40px;
+    height:auto; 
+    cursor:pointer;
+    display:inline-block;
+    text-align:center;
+    border:1px dashed #FCFAFA;
+}
+#btncenter img:hover {
+   border:1px dashed #979797;
+}
+#btncenter a {
+    text-decoration:none;
+    color:#979797;
+    
+}
+#btncenter a:hover {
+    text-decoration:underline;
+    color:#979797;
+}
+#btncenter div{
+    width:60px; 
+    height:50px; 
+    float:left;
+    text-align:center;
+    margin:10px 10px 20px 10px;
+}
+#centerbarbot {
+        width: 2800px;
+        height: auto;
+        margin:30px auto auto 30px;
+        
+    }
+
+#centerbarbot img {
+    width:40px;
+    height:auto; 
+    cursor:pointer;
+    display:inline-block;
+    text-align:center;
+}
+#centerbarbot a {
+    text-decoration:none;
+    color:#979797;
+    
+}
+#centerbarbot a:hover {
+    text-decoration:underline;
+    color:#979797;
+}
+#centerbarbot div{
+    width:60px; 
+    height:50px; 
+    float:left;
+    text-align:center;
+    margin:5px;
+}
+
 #quest {
     float:left;
     margin:18px auto 8px 0;
@@ -221,7 +270,12 @@ button.addbutton:hover,button.removebutton:hover{
   text-align:center;
   font-weight:bold;
  
+ 
 }
+    .concept:hover {
+    
+        cursor:move;
+    }
 
 #container {
   float:left;

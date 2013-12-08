@@ -63,7 +63,7 @@
      
 
  <div id="site_content">
-    
+    @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
 </div>
    <div class="right_content">
        

@@ -1,15 +1,10 @@
 ﻿@model List<DemoCCM.Models.Link>
-
 @{
-    ViewBag.Title = "DanhGia";
+    String space = "\t";
+    String enter = "\n";
 }
-
-<h2>Đánh giá</h2>
-
 @foreach (var l in Model)
 {
-    @l.ConceptID1 @l.Text @l.ConceptID2 @l.Result.ToString()
+    @l.ConceptID1 @space @l.Text @space @l.ConceptID2 @space @l.Result.ToString() @enter
 
 }
-    
-

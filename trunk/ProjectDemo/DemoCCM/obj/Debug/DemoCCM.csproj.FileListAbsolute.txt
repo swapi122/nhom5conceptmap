@@ -98,7 +98,6 @@ F:\group5-cnpm\ProjectDemo\DemoCCM\bin\System.Web.Razor.xml
 F:\group5-cnpm\ProjectDemo\DemoCCM\bin\System.Web.WebPages.xml
 F:\group5-cnpm\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Deployment.xml
 F:\group5-cnpm\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Razor.xml
-F:\group5-cnpm\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.csprojResolveAssemblyReference.cache
 F:\group5-cnpm\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.dll
 F:\group5-cnpm\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.pdb
 F:\nhom55\ProjectDemo\DemoCCM\bin\DemoCCM.dll
