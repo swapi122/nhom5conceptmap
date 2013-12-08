@@ -86,6 +86,7 @@ function checkExistDataDifRelation(ndata) {
         if (isExistDifRelation(data[i], ndata)) {
             //alert("tim duoc 1 thang trung");
             data[i].relation = ndata.relation;
+            data[i].liID = ndata.liID;
             return true;
         }    
     }
@@ -98,9 +99,10 @@ $(".addbutton").click(function (event) {
     var cc1 = $("#concept1 :selected").text();
     var ccid1 = $("#concept1 :selected").val();
     var link = $("#link :selected").text();
+    var linkID = $("#link :selected").val();
     var cc2 = $("#concept2 :selected").text();
     var ccid2 = $("#concept2 :selected").val();
-    var da = { concept1: cc1, relation: link, concept2: cc2,conceptid1:ccid1,conceptid2:ccid2};
+    var da = { concept1: cc1, relation: link, concept2: cc2,conceptid1:ccid1,conceptid2:ccid2,liID:linkID};
     if (cc1 == cc2) {
         alert("Khái niệm giống nhau!!")
     } else {
@@ -134,6 +136,19 @@ $(".removebutton").click(function (event) {
     selected.sort(function (a, b) { return b - a });
     removeInData(selected);
 });
+$(".newbutton").click(function (event) {
+    var r = confirm("Bạn có muốn tạo mới concept map không");
+    if (r == true) {
+        data = [];
+        $("#area").empty();
+    }
+    else {
+       
+    }
+    
+});
+
+
 function textareaLoadEngineT(conceptMap, options) {
     $(".addbutton").click(function (event) {
         conceptMap.loadFacts(this.value);
@@ -141,35 +156,42 @@ function textareaLoadEngineT(conceptMap, options) {
     $(".removebutton").click(function (event) {
         conceptMap.loadFacts(this.value);    
     });
+    $(".newbutton").click(function (event) {
+        conceptMap.loadFacts(this.value);
+    });
+    $(".btnDanhGia").click(function (event) {
+        conceptMap.loadFacts(this.value);
+    });
+   
     return data;
 };
 var flag = true;
 
-function textareaLoadEngine(conceptMap, options) {
-    var triples = [];
-    var $facts = $("#concepts");
-    var text = $facts.val();
-    $(".addbutton").click(function (event) {
-        conceptMap.loadFacts(this.value);   
-    });
+//function textareaLoadEngine(conceptMap, options) {
+//    var triples = [];
+//    var $facts = $("#concepts");
+//    var text = $facts.val();
+//    $(".addbutton").click(function (event) {
+//        conceptMap.loadFacts(this.value);   
+//    });
     
-    facts = text.split('\n');
+//    facts = text.split('\n');
        
-    var fl = facts.length;
-    for (var i = 0; i < fl; i++) {
-        var t = parseFact(facts[i]);
-        if (t) {
-            triples.push(t);
-        }
-    }
+//    var fl = facts.length;
+//    for (var i = 0; i < fl; i++) {
+//        var t = parseFact(facts[i]);
+//        if (t) {
+//            triples.push(t);
+//        }
+//    }
         
-    return triples;
-};
+//    return triples;
+//};
 
 $(".btnSave").click(function (event) {
     var links = [];
     for (var i = 0; i < data.length; i++) {
-        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation })
+        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation,LinkID: data[i].liID })
     }
     $.ajax({
         url: '/Topic/Save',
@@ -185,7 +207,7 @@ $(".btnSave").click(function (event) {
 $(".btnDanhGia").click(function (event) {
     var links = [];
     for (var i = 0; i < data.length; i++) {        
-        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation })
+        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation, LinkID: data[i].liID })
     }
     $.ajax({
         url: '/Topic/DanhGia',
@@ -193,8 +215,34 @@ $(".btnDanhGia").click(function (event) {
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(links),
         success: function (resp) {
-
+            var x = resp.split("\n");
             alert(resp);
+            for (var i = 0; i < x.length ; i++) {
+                if (!find(x[i])) {
+                    var da = x[i].trim().split("|");
+                    for (var j = 0; j < data.length; j++) {
+                        if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
+                            data[j].relation += "(flase)";
+                        }
+                    }
+                    
+                }
+            }
+
+            textareaLoadEngineT(conceptMap, options);
+          
         }
     });
 })
+
+function find(da) {
+    var nda = da.trim().split("|");
+    if (nda[3] == "False") {
+        
+        return false;
+    }
+    return true;
+};
+function changeColer(da) {
+    
+};

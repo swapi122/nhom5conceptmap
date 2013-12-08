@@ -46,6 +46,7 @@ namespace DemoCCM.Controllers
             for (int i = 0; i < links.Length; i++)
             {
                 Link li = links[i];
+                li.Text = db.Links.Find(li.LinkID).Text;
                 if ((li = CheckLink(li)) == null)
                 {
                     li = links[i];
