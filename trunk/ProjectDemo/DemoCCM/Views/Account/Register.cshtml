@@ -2,9 +2,10 @@
 @model DemoCCM.Models.User
 @{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
     
 }
-@Styles.Render("~/Content/RegisterStyle.css","~/Content/style.css")
+@Styles.Render("~/Content/style.css")
 
    <div class="idregister">
          <h1>Đăng Kí</h1>
@@ -38,14 +39,14 @@
             }
         </div>
        
-          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+      @*    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
        </script>
        <script>
            $(".Regis").hide()
            $(".idregister h1").click(function () {
                $(".Regis").toggle();
            });
-      </Script>  
+      </Script>  *@
   </div>
    
 
