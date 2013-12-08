@@ -111,7 +111,7 @@ $(".addbutton").click(function (event) {
             flag = false;
         } else {
             if (checkExistDataDifRelation(da)) {
-                alert("Ðã thay d?i liên k?t");
+                alert("Ðã thay đổi liên kết");
             }else if (!checkExistData(da)) {
                 data.push(da);      
             }else{
@@ -159,9 +159,7 @@ function textareaLoadEngineT(conceptMap, options) {
     $(".newbutton").click(function (event) {
         conceptMap.loadFacts(this.value);
     });
-    $(".btnDanhGia").click(function (event) {
-        conceptMap.loadFacts(this.value);
-    });
+   
    
     return data;
 };
@@ -205,8 +203,9 @@ $(".btnSave").click(function (event) {
 })
 
 $(".btnDanhGia").click(function (event) {
+
     var links = [];
-    for (var i = 0; i < data.length; i++) {        
+    for (var i = 0; i < data.length; i++) {
         links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation, LinkID: data[i].liID })
     }
     $.ajax({
@@ -215,22 +214,24 @@ $(".btnDanhGia").click(function (event) {
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(links),
         success: function (resp) {
-            var x = resp.split("\n");
             alert(resp);
-            for (var i = 0; i < x.length ; i++) {
-                if (!find(x[i])) {
-                    var da = x[i].trim().split("|");
-                    for (var j = 0; j < data.length; j++) {
-                        if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
-                            data[j].relation += "(flase)";
-                        }
-                    }
-                    
-                }
-            }  
+            //var x = resp.split("\n");
+            //for (var i = 0; i < x.length ; i++) {
+            //    if (!find(x[i])) {
+            //        var da = x[i].trim().split("|");
+            //        for (var j = 0; j < data.length; j++) {
+            //            if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
+            //                data[j].relation += "(flase)";
+            //            }
+            //        }
+
+            //    }
+            //}
+            return resp;
         }
     });
-})
+});
+
 
 function find(da) {
     var nda = da.trim().split("|");
