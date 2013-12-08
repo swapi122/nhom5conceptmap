@@ -1,4 +1,4 @@
-function parseFact(fact){
+﻿function parseFact(fact){
   //fact = fact.trim();
   //var topic1, topic2, relation;
   //if (/^[^"]+"[^"]+"[^"]+$/.test(fact)) {
@@ -104,18 +104,18 @@ $(".addbutton").click(function (event) {
     var ccid2 = $("#concept2 :selected").val();
     var da = { concept1: cc1, relation: link, concept2: cc2,conceptid1:ccid1,conceptid2:ccid2,liID:linkID};
     if (cc1 == cc2) {
-        alert("Kh�i ni?m gi?ng nhau!!")
+        alert("Khái niệm giống nhau!!")
     } else {
         if (flag) {
             data.push(da);
             flag = false;
         } else {
             if (checkExistDataDifRelation(da)) {
-                alert("�� thay d?i li�n k?t");
+                alert("Ðã thay d?i liên k?t");
             }else if (!checkExistData(da)) {
                 data.push(da);      
             }else{
-                alert("Kh�i ni?m d� t?n t?i");
+                alert("Khái niệm đã tồn tại");
             }
         }
         $("#area").empty();
@@ -137,7 +137,7 @@ $(".removebutton").click(function (event) {
     removeInData(selected);
 });
 $(".newbutton").click(function (event) {
-    var r = confirm("B?n c� mu?n t?o m?i concept map kh�ng");
+    var r = confirm("Bạn có muốn tạo mới concept map không");
     if (r == true) {
         data = [];
         $("#area").empty();
