@@ -40,11 +40,10 @@ namespace WebsiteBanHang.Controllers
 
             if (ModelState.IsValid)
             {
-                if (IsValid(model.UserName, model.Pass))
+               if (IsValid(model.UserName, model.Pass))
                 {
                   
-                   
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    FormsAuthentication.SetAuthCookie(model.UserName,false);
                     return RedirectToAction("Index", "TrangChu");
                 }
             }
@@ -54,7 +53,6 @@ namespace WebsiteBanHang.Controllers
 
             return View(model);
         }
-
 
         // POST: /Account/LogOff
      

@@ -4,44 +4,46 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css", "~/Content/style.css")
     @Scripts.Render("~/Scripts/js")
-    
 </head>
 <body>
   <div id="main">
-    <header> 
-        <div id="login-register">
+    <header>
+    @*          @{Html.RenderAction("Login", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}
+              @{Html.RenderAction("Register", "Account", new { ReturnUrl = @Request.Url.AbsoluteUri });}*@
+                <div id="login-register">
                      @if (Request.IsAuthenticated)
                      {
-                          <a>Chào    <strong>@Html.Encode(User.Identity.Name)</strong></a>
-                          @Html.ActionLink(" Maps  ", "Register", "Account")
-                           @Html.ActionLink(" Register ", "Register", "Account")
-                           @Html.ActionLink(" [LogOff] ", "LogOff", "Account")
+                          @*<a><strong>@Html.Encode(User.Identity.Name)</strong></a>*@
+                           @Html.ActionLink("Login  ", "Login", "Account")
+                           @Html.ActionLink("Register", "Register", "Account")
+                           @Html.ActionLink("[LogOff]", "LogOff", "Account")
                      }
                      else
                      {
+                          <li><a>Chào <strong> @Html.Encode(User.Identity.Name)</strong></a></li>
                            @Html.ActionLink("Login  ", "Login", "Account")
                            @Html.ActionLink("Register", "Register", "Account")
                      }
               
-               </div>
+                    </div>
       <div id="logo">
         <div id="logo_text" style="float: left;">
-          <img src="~/photos/logocc.png" alt="Concept Map">
+            <img src="~/Photos/logocc.png" />
+
         </div>
       </div>
       <nav>
         <div id="menu_container">
           <ul class="sf-menu" id="nav">
-          
- 
-                  <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
-                  <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
-                  <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
-                  <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
-                  <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
              
-           
-            
+                 
+                 <li>@Html.ActionLink("Home", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Giới Thiệu", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Liên Hệ", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Diễn Đàn", "Index", "TrangChu")</li>
+                 <li>@Html.ActionLink("Học Online", "Index", "TrangChu")</li>
+               
+              
             
           </ul>
   
@@ -53,10 +55,13 @@
     <div id="main_content">
      
         @{Html.RenderAction("_TrinhDoPartial", "TrangChu");}
-        <div id="site_content">
-         @RenderBody()
+        
+ <div id="site_content">
+    
+     @RenderBody()
 
-       </div>
+
+    </div>
     	
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryval")
@@ -64,7 +69,6 @@
 </div>
      
 
- 
    <div class="right_content">
        
 

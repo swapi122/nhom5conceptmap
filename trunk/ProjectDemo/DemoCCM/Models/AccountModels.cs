@@ -27,9 +27,6 @@ namespace DemoCCM.Models
             [StringLength(100, MinimumLength = 6, ErrorMessage = "{0} dài ít nhất {2} kí tự ")]
             [Display(Name = "Password")]
             public string Pass { get; set; }
-
-
-
         }
 
     }

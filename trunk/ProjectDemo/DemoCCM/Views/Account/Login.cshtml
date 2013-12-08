@@ -1,15 +1,15 @@
 ﻿
 @model DemoCCM.Models.User
 @{
-    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Login";
     
 }
 @Styles.Render("~/Content/style.css")
      
-<div class="idLogin">
-    <h1>Đăng nhập</h1>
-        <div class="login textBox">
+
+    <h>Đăng nhập</h>
+   
            
             @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
             {
@@ -37,8 +37,8 @@
             <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a>.</p>
         </div>
             }
-        </div>
- </div>
+ 
+
 
         @*  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
        </script>

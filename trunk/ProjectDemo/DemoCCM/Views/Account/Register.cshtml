@@ -2,15 +2,12 @@
 @model DemoCCM.Models.User
 @{
     ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     
 }
 @Styles.Render("~/Content/style.css")
 
-   <div class="idregister">
          <h1>Đăng Kí</h1>
-        <div class="Regis textBox">
-           
             @using (Html.BeginForm("Register","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
             {
                  @Html.AntiForgeryToken()
@@ -37,7 +34,7 @@
             <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a>.</p>
         </div>
             }
-        </div>
+        
        
       @*    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
        </script>

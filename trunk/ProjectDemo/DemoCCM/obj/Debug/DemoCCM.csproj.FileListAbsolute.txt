@@ -174,6 +174,5 @@ D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\bin\System.Web.Razor.xml
 D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\bin\System.Web.WebPages.xml
 D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Deployment.xml
 D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\bin\System.Web.WebPages.Razor.xml
-D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.csprojResolveAssemblyReference.cache
 D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.dll
 D:\NamIV_HK1\CNPM\nhom5555\ProjectDemo\DemoCCM\obj\Debug\DemoCCM.pdb
