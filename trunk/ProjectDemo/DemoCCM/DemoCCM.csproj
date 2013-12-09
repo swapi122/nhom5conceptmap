@@ -205,6 +205,7 @@
     <Content Include="Content\images\footer.png" />
     <Content Include="Content\images\graphic.jpg" />
     <Content Include="Content\images\grid.gif" />
+    <Content Include="Content\images\login-sprite.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoconcept.gif" />
     <Content Include="Content\images\menubar.png" />

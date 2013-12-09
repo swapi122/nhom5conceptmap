@@ -109,7 +109,7 @@ body{
     margin-left:1000px;
     width:auto;
     height:700px;
-    background-color: rgba(250, 247, 247, 0.45);
+    background-color:#d9dee2;
     border-left: 1px solid #ccc;
     box-shadow: 0px -1px 10px rgba(50, 50, 50, 0.2);
     /*border-top-left-radius: 6px;
@@ -181,10 +181,10 @@ button.addbutton:hover,button.removebutton:hover,button.newbutton:hover{
     cursor:pointer;
     display:inline-block;
     text-align:center;
-    border:1px dashed #FCFAFA;
+    border:1px dashed #d9dee2;
 }
 #btncenter img:hover {
-   border:1px dashed #979797;
+   border:1px dashed #f2f2f2;
 }
 #btncenter a {
     text-decoration:none;
@@ -271,10 +271,16 @@ button.addbutton:hover,button.removebutton:hover,button.newbutton:hover{
  
  
 }
-    .concept:hover {
-    
-        cursor:move;
-    }
+ .relationFalseDiv{
+    border:2px solid red;
+    border-radius:5px;
+ }
+ .relationFalseLabel{
+   color:red;
+ }
+ .concept:hover {   
+    cursor:move;
+ }
 
 #container {
   float:left;

@@ -8,42 +8,48 @@
 @Styles.Render("~/Content/style.css")
      
 
+<div id="login">
+    <h1>Đăng Nhập</h1>
+     @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
+
+
     <h>Đăng nhập</h>
     
             @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
+
             {
                  @Html.AntiForgeryToken()
                  @Html.ValidationSummary(true)
-                <p>
-                    @Html.LabelFor(m => m.UserName) 
+                 <div id="inputs">
+                    
                     @Html.TextBoxFor(m=>m.UserName,new {placeholder="Username or Email"})
                     @Html.ValidationMessageFor(m => m.UserName)
-                </p>
-                <p>
-                    @Html.LabelFor(m => m.Pass)
+               
+                   
                     @Html.PasswordFor(m => m.Pass, new {placeholder="Password"})
                     @Html.ValidationMessageFor(m => m.Pass)
-                </p>
-                 <p class="submit">
-                    <input type="submit" name="commit" value="Đăng nhập">
-                </p>
-               
-                <div class="login-help">
-            <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a>.</p>
-        </div>
-            }
+
+                  </div>
+                 <div id="actions">
+                    <div class="submit">
+                        <input type="submit" name="commit" value="Đăng nhập">
+                    </div>
+                     <div class="login-help">
+                        <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a></p>
+                    </div>
+                     @*
+                    <p class="remember_me">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </p>*@
+                </div>
  
+            }
 
-
-        @*  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-       </script>
-       <script>
-           $(".login").hide()
-           $(".idLogin h1").click(function () {
-               $(".login").toggle();
-           });
-      </Script>  *@
-  
+</div>
+    
+   
+        
 
 
  

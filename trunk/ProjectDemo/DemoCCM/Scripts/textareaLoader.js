@@ -43,7 +43,8 @@ function addCheckBox() {
         newCheckBox.value = i;
         newCheckBox.id = "ckbox"+i;
         parentElement.appendChild(newCheckBox);
-        var a = "<label id='n" + i + "' for='ckbox"+i+"'>" + data[i].concept1 + " " + data[i].relation + " " + data[i].concept2 + "</label></br>";
+        var name = data[i].concept1 + "_" + data[i].concept2;
+        var a = "<label id='n" + i + "' for='ckbox" + i + "' data-relation='" + name + "'>" + data[i].concept1 + " " + data[i].relation + " " + data[i].concept2 + " </label></br>";
         $("#area").append(a);
     }
 };
@@ -162,8 +163,9 @@ function textareaLoadEngineT(conceptMap, options)
     $(".newbutton").click(function (event) {
         conceptMap.loadFacts(this.value);
     });
-   
-   
+    $(".btnDanhGia").click(function (event) {
+        conceptMap.loadFacts(this.value);
+    });
     return data;
 };
 var flag = true;
@@ -204,37 +206,57 @@ $(".btnSave").click(function (event) {
         }
     });
 })
-
+var respCheck;
 $(".btnDanhGia").click(function (event) {
-
-    var links = [];
-    for (var i = 0; i < data.length; i++) {
-        links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation, LinkID: data[i].liID })
-    }
-    $.ajax({
-        url: '/Topic/DanhGia',
-        type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        data: JSON.stringify(links),
-        success: function (resp) {
-            alert(resp);
-
-            for (var i = 0; i < x.length ; i++) {
-                if (!find(x[i])) {
-                    var da = x[i].trim().split("|");
-                    for (var j = 0; j < data.length; j++) {
-                        if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
-                            data[j].relation += "(flase)";
+    if (data.length <= 0) {
+        alert("Bạn chưa vẽ concept map")
+    } else {
+        $("div").removeClass("relationFalseDiv");
+        $("label").removeClass("relationFalseLabel");
+        var links = [];
+        
+        for (var i = 0; i < data.length; i++) {
+            links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation, LinkID: data[i].liID })
+        }
+        var fl = 0;
+        var alltrue = true;
+        $.ajax({
+            url: '/Topic/DanhGia',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(links),
+            success: function (resp) {
+                //alert(resp);
+                var x = resp.split("\n");
+                for (var i = 0; i < x.length ; i++) {
+                    if (!find(x[i])) {
+                        fl++;
+                        alltrue = false;
+                        var da = x[i].trim().split("|");
+                        for (var j = 0; j < data.length; j++) {
+                            if (data[j].conceptid1 == da[0] && data[j].conceptid2 == da[2]) {
+                                var name = data[j].concept1 + "_" + data[j].concept2;
+                                //alert(name);
+                                $("div[data-relation='" + name + "']").addClass("relationFalseDiv");
+                                $("label[data-relation='" + name + "']").addClass("relationFalseLabel");
+                                break;
+                            }
 
                         }
+
                     }
-                    
                 }
-            }  
+                if (alltrue) {
+                    alert("Bạn Làm đúng hết rồi!");
+                } else {
+                    var string = "Bạn làm đúng " + (data.length- fl) + "trên "+ data.length+ " liên kết!";
+                    alert(string);
+                }
+                
+            }
+        });
+    }
 
-
-        }
-    });
 });
 
 

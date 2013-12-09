@@ -152,7 +152,7 @@
 
      function createRelation(from, to, label){
        var obj = {};
-       obj.$html = $("<div class='relation'>" + label + "</div>");
+       obj.$html = $("<div class='relation'  data-relation='" +from+"_"+to+"'>" + label + "</div>");
        obj.from = from;
        obj.to = to;
        obj.label = label;
