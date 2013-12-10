@@ -11,7 +11,6 @@ using WebMatrix.WebData;
 using DemoCCM.Models;
 using DemoCCM.Controllers;
 
-
 namespace WebsiteBanHang.Controllers
 {
     [Authorize]
@@ -28,10 +27,8 @@ namespace WebsiteBanHang.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
         //
         // POST: /Account/Login
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

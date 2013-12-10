@@ -14,7 +14,7 @@
         <div id="toolTOPbar">
             <a>Câu hỏi trọng tâm</a>
             <div id="quest" class="dropdown">
-             @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post, new { id = "formFillter" }))
+             @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post,new { id = "formFillter" }))
                         {
                                 @Html.DropDownList("ConceptID", ViewBag.cd as SelectList, new { id = "ddlMenu" })
    
@@ -32,11 +32,13 @@
             </div>
         </div>
         <div class="separator"></div>
-        <div id="toolAdd">     
+        <div id="toolAdd">
+                 
              <div id="concept1" > @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName")) </div>
              <div id="link">@Html.DropDownList("LinkID", new SelectList(Model.Links, "LinkID", "Text"))</div>
              <div id="concept2"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName"))</div>
-            <div id="btncenter">
+           
+             <div id="btncenter">
                 <div class="button">
                      <img  class="addbutton" src="~/Content/images/btn/gnome_list_add.png" />
                      <a href="#" class="addbutton">Thêm</a>
@@ -51,10 +53,12 @@
                  </div>
              </div>
         </div>
-       <div id="area"></div>
+       <div id="area">
+
+       </div>
        <div id="toolData">
          <div id="centerbarbot">  
-             <div class="button">
+             <div class="button" >
                      <img  class="btnDanhGia" src="~/Content/images/btn/stock_task.png" />
                      <a href="#" class="btnDanhGia">Đánh giá</a>
                </div>
@@ -64,7 +68,7 @@
                </div>
               <div class="button">
                      <img  class="btnSave" src="~/Content/images/btn/3_disc.png" />
-                     <a href="#" class="btnSave">Lưu</a>
+                     <a href="#" class="btnSave" >Lưu</a>
                </div>
              <div class="button">
                      <img  class="btnDowload" src="~/Content/images/btn/cloud_download.png" />

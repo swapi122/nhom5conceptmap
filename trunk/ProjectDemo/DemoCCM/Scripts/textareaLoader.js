@@ -26,9 +26,9 @@
   
     fact = fact.trim();
     var topic1, topic2, relation;
-    var data = fact.split('|');
+    var data = fact.split('|'); 
     if (fact!="") {
-        return { concept1: data[0], relation: data[1], concept2: data[2] };
+        return { concept1: data[0], relation: data[1], concept2: data[2] }; 
     } else {
         return null;
     }
@@ -36,7 +36,7 @@
 };
 var facts;
 function addCheckBox() {
-    var parentElement = document.getElementById('area');
+    var parentElement = document.getElementById('area');   //Lấy giá trị của id là area  
     for (var i = 0; i < data.length ; i++) {
         var newCheckBox = document.createElement('input');
         newCheckBox.type = 'checkbox';
@@ -84,7 +84,7 @@ function isExistDifRelation(da, d) {
 function checkExistDataDifRelation(ndata) {
     var l = data.length;
     for (var i = 0; i < l; i++) {
-        if (isExistDifRelation(data[i], ndata)) {
+        if (isExistDifRelation(data[i],ndata)) {
             //alert("tim duoc 1 thang trung");
             data[i].relation = ndata.relation;
             data[i].liID = ndata.liID;
@@ -94,6 +94,7 @@ function checkExistDataDifRelation(ndata) {
     return false;
 };
 var data = [];
+
 
 $(".addbutton").click(function (event) {
     
@@ -106,7 +107,8 @@ $(".addbutton").click(function (event) {
     var da = { concept1: cc1, relation: link, concept2: cc2,conceptid1:ccid1,conceptid2:ccid2,liID:linkID};
     if (cc1 == cc2) {
         alert("Khái niệm giống nhau!!")
-    } else {
+    }
+    else {
         if (flag) {
             data.push(da);
             flag = false;
@@ -170,6 +172,8 @@ function textareaLoadEngineT(conceptMap, options)
 };
 var flag = true;
 
+
+
 //function textareaLoadEngine(conceptMap, options) {
 //    var triples = [];
 //    var $facts = $("#concepts");
@@ -191,6 +195,7 @@ var flag = true;
 //    return triples;
 //};
 
+
 $(".btnSave").click(function (event) {
     var links = [];
     for (var i = 0; i < data.length; i++) {
@@ -202,11 +207,15 @@ $(".btnSave").click(function (event) {
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(links),
         success: function (resp) {
+           // alltrue = false;
             alert(resp);
+
+           
         }
     });
 })
 var respCheck;
+
 $(".btnDanhGia").click(function (event) {
     if (data.length <= 0) {
         alert("Bạn chưa vẽ concept map")
@@ -220,6 +229,7 @@ $(".btnDanhGia").click(function (event) {
         }
         var fl = 0;
         var alltrue = true;
+        
         $.ajax({
             url: '/Topic/DanhGia',
             type: 'POST',
@@ -228,8 +238,10 @@ $(".btnDanhGia").click(function (event) {
             success: function (resp) {
                 //alert(resp);
                 var x = resp.split("\n");
-                for (var i = 0; i < x.length ; i++) {
-                    if (!find(x[i])) {
+                for (var i = 0; i < x.length ; i++)
+                {
+                    if (!find(x[i]))
+                    {
                         fl++;
                         alltrue = false;
                         var da = x[i].trim().split("|");
@@ -246,12 +258,28 @@ $(".btnDanhGia").click(function (event) {
 
                     }
                 }
+
                 if (alltrue) {
                     alert("Bạn Làm đúng hết rồi!");
+                    document.getElementsByClassName('button').getElementsByClassName('btnSave').disabled = false;
+                   
+
                 } else {
-                    var string = "Bạn làm đúng " + (data.length- fl) + "trên "+ data.length+ " liên kết!";
-                    alert(string);
+
+                    alert(alltrue);
+                    var string = "Bạn làm đúng " + (data.length - fl) + "trên " + data.length + " liên kết!";
+                    document.getElementsByClassName('button').getElementsByClassName('btnSave').disabled = true;
+                   
+                  
+                    
                 }
+
+               
+            
+                  
+               
+                    
+                
                 
             }
         });
