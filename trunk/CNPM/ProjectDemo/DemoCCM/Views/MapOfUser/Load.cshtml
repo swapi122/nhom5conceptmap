@@ -1,0 +1,86 @@
+﻿@model DemoCCM.Models.Map
+
+@{
+    ViewBag.Title = "Load";
+    Layout = "~/Views/Shared/_DrawLayout.cshtml";
+  String user = @ViewBag.UserName as String;
+
+}
+<link href="~/Content/app.css" rel="stylesheet" />
+<input type="hidden" id="levelID" value="@ViewBag.levelID2" />
+<input type="hidden" id="mapID" value="@ViewBag.MapID" />
+<input type="hidden" id="data" value="@ViewBag.data"/>
+
+
+
+<div id="canvas-container">
+  
+    <div id="container"></div> 
+    <div id="tool-container">
+        <div id="toolTOPbar">
+            <a href="@Url.Action("Index","TrangChu")"><img style="height:30px;width:30px;" src="~/Photos/home.png" /></a> 
+             <a>Tên Map :  <strong>@ViewBag.mapName</strong> </a>
+        </div>
+
+        <div class="separator"></div>
+        <div id="toolAdd">          
+             <div id="concept1" > @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName")) </div>
+             <div id="link">@Html.DropDownList("LinkID", new SelectList(Model.Links, "LinkID", "Text"))</div>
+             <div id="concept2"> @Html.DropDownList("ConceptID", new SelectList(Model.Concepts, "ConceptID", "ConceptName"))</div>
+             <div id="btncenter">
+                <div class="button">
+                     <img  class="addbutton" src="~/Content/images/btn/gnome_list_add.png" />
+                     <a href="#" class="addbutton">Thêm</a>
+
+               
+
+                 </div>
+                 <div class="button">
+                     <img  class="removebutton" src="~/Content/images/btn/gnome_edit_delete.png" />
+                     <a href="#" class="removebutton">Xóa</a>
+                 </div>
+                 <div class="button">
+                     <img  class="newbutton" src="~/Content/images/btn/new.png" />
+                     <a href="#" class="newbutton">Tạo mới</a>
+                 </div>
+             </div>
+        </div>
+       <div id="area"> 
+       </div>
+       <div id="toolData">
+         <div id="centerbarbot">  
+             <div class="button" >
+                     <img  class="btnDanhGia" src="~/Content/images/btn/stock_task.png" />
+                     <a href="#" class="btnDanhGia">Đánh giá</a>
+               </div>
+              <div class="button">
+                     <img  class="btnKetQua" src="~/Content/images/btn/file-complete-icon.png" />
+                     <a href="#" class="btnKetQua">Kết quả</a>
+               </div>
+              <div class="button">
+                     <img  class="btnSave" src="~/Content/images/btn/3_disc.png" />
+                     <a href="#" class="btnSave" >Lưu</a>
+               </div>
+             <div class="button">
+                     <img  class="btnDowload" src="~/Content/images/btn/cloud_download.png" />
+                 <a href="@Url.Action("Index","MapOfUser",new {UserName=user })">Open</a>
+                   
+                     
+               </div>
+           
+        </div>
+       </div>
+  </div>
+</div> 
+
+ <script src="~/scripts/jquery-1.10.2.min.js"></script>
+ <script src="~/scripts/jquery-ui.js"></script>
+ <script src="~/Scripts/my.js"></script>
+<script src="~/Scripts/jquery.conceptmap.js"></script>
+
+ <script type="text/javascript"> 
+     $(function () {
+        $("#container").conceptMap({ 'tripleLoader': { func: textareaLoadEngineT, args: {} } });
+    });
+</script>
+

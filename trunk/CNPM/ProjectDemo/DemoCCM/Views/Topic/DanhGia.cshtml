@@ -1,0 +1,13 @@
+﻿
+@model List<DemoCCM.Models.Link>
+@{
+
+    String space = "|";
+    String enter = "\n";
+
+}
+@foreach (var l in Model)
+{
+    @l.ConceptID1 @space @l.Text @space @l.ConceptID2 @space @l.Result.ToString() @enter 
+
+}
