@@ -139,51 +139,51 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ConceptAll.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ConceptMapDB1.Context.cs">
+    <Compile Include="Models\ConceptMapDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ConceptMapDB1.Context.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ConceptMapDB1.cs">
+    <Compile Include="Models\ConceptMapDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ConceptMapDB1.Designer.cs">
+    <Compile Include="Models\ConceptMapDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ConceptMapDB1.edmx</DependentUpon>
+      <DependentUpon>ConceptMapDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ConceptsForTopic.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Level.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Link.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LinkOfMap.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Map.cs" />
     <Compile Include="Models\MapOfUser.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QLUserMap.cs" />
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Topic.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TopicOfLevel.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>ConceptMapDB1.tt</DependentUpon>
+      <DependentUpon>ConceptMapDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -306,22 +306,22 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\ConceptMapDB1.edmx">
+    <EntityDeploy Include="Models\ConceptMapDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ConceptMapDB1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ConceptMapDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ConceptMapDB1.Context.tt">
+    <Content Include="Models\ConceptMapDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ConceptMapDB1.edmx</DependentUpon>
-      <LastGenOutput>ConceptMapDB1.Context.cs</LastGenOutput>
+      <DependentUpon>ConceptMapDB.edmx</DependentUpon>
+      <LastGenOutput>ConceptMapDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ConceptMapDB1.edmx.diagram">
-      <DependentUpon>ConceptMapDB1.edmx</DependentUpon>
+    <Content Include="Models\ConceptMapDB.edmx.diagram">
+      <DependentUpon>ConceptMapDB.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\ConceptMapDB1.tt">
+    <Content Include="Models\ConceptMapDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ConceptMapDB1.edmx</DependentUpon>
-      <LastGenOutput>ConceptMapDB1.cs</LastGenOutput>
+      <DependentUpon>ConceptMapDB.edmx</DependentUpon>
+      <LastGenOutput>ConceptMapDB.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -366,6 +366,9 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\MapOfUser\Index.cshtml" />
     <Content Include="Views\MapOfUser\Load.cshtml" />
+    <Content Include="Views\MapOfUser\Save.cshtml" />
+    <Content Include="Views\MapOfUser\Delete.cshtml" />
+    <Content Include="Views\Topic\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

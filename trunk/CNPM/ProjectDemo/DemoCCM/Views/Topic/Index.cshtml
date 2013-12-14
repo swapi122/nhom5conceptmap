@@ -8,6 +8,8 @@
     string user= Session["UserName"] as String;
 }
 <input type="hidden" id="levelID" value="@ViewBag.levelID2" />
+<input type="hidden" id="conceptID" value="@ViewBag.conceptID" />
+<input type="hidden" id="topicID" value="@ViewBag.topicID2" />
 <div id="canvas-container">
     <div id="container">
        
@@ -15,7 +17,7 @@
     <div id="tool-container">
         <div id="toolTOPbar">
               <a href="@Url.Action("Index","TrangChu")"><img style="height:30px;width:30px;" src="~/Photos/home.png" /></a> 
-            <a>Câu hỏi trọng tâm</a>
+            <a>Câu hỏi trọng tâm </a>
             <div id="quest" class="dropdown">
              @using (Html.BeginForm("Index", "Topic", new { LevelID1 = levelID3, topicId1 = topicID3 }, FormMethod.Post,new { id = "formFillter" }))
                         {

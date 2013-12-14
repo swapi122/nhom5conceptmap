@@ -120,7 +120,6 @@ $(".newbutton").click(function (event) {
     }
 });
 
-
 function textareaLoadEngineT(conceptMap, options) {
     $(".addbutton").click(function (event) {
         conceptMap.loadFacts(this.value);
@@ -150,18 +149,33 @@ function textareaLoadEngineT(conceptMap, options) {
 };
 var flag = true;
 var flagFirst = true;
+/*
+$(".btnKetQua").click(function (event) {
+    var mapID = $("#mapID").val();
+    $.ajax({
+        url: '/MapOfUser/Delete',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({MapID: mapID}),
+        success: function (resp) {
+            alert(resp);
+        }
+    });
+});*/
 $(".btnSave").click(function (event) {
     var links = [];
     for (var i = 0; i < data.length; i++) {
         links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation, LinkID: data[i].liID })
     }
     var levelID = $("#levelID").val();
+    var conceptID = $("#conceptID").val();
     var mapID = $("#mapID").val();
-    var mapName = prompt("Nhập tên concept map của bạn", "Concept Name");
+    var mapname = $("#mapname").text();
+    var mapName = prompt("Nhập tên concept map của bạn",mapname);
     if (mapName != null) {
-        var obj = { links: links, mapName: mapName, LevelID: levelID, MapID: mapID};
+        var obj = { links: links, mapName: mapName, LevelID: levelID, MapID: mapID,ConceptID: conceptID};
         $.ajax({
-            url: '/Topic/Save',
+            url: '/MapOfUser/Save',
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(obj),

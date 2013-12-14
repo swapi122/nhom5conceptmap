@@ -19,6 +19,7 @@ namespace DemoCCM.Models
             this.ConceptsForTopics = new HashSet<ConceptsForTopic>();
             this.Links = new HashSet<Link>();
             this.Links1 = new HashSet<Link>();
+            this.MapOfUsers = new HashSet<MapOfUser>();
         }
     
         public string ConceptID { get; set; }
@@ -27,5 +28,6 @@ namespace DemoCCM.Models
         public virtual ICollection<ConceptsForTopic> ConceptsForTopics { get; set; }
         public virtual ICollection<Link> Links { get; set; }
         public virtual ICollection<Link> Links1 { get; set; }
+        public virtual ICollection<MapOfUser> MapOfUsers { get; set; }
     }
 }

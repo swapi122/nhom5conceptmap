@@ -4,22 +4,21 @@
     ViewBag.Title = "Load";
     Layout = "~/Views/Shared/_DrawLayout.cshtml";
   String user = @ViewBag.UserName as String;
-
+  int MapID = @ViewBag.MapID;
 }
 <link href="~/Content/app.css" rel="stylesheet" />
 <input type="hidden" id="levelID" value="@ViewBag.levelID2" />
 <input type="hidden" id="mapID" value="@ViewBag.MapID" />
 <input type="hidden" id="data" value="@ViewBag.data"/>
-
-
+<input type="hidden" id="conceptID" value="@ViewBag.conceptID"/>
 
 <div id="canvas-container">
   
-    <div id="container"></div> 
+    <div id="container"></div>
     <div id="tool-container">
         <div id="toolTOPbar">
             <a href="@Url.Action("Index","TrangChu")"><img style="height:30px;width:30px;" src="~/Photos/home.png" /></a> 
-             <a>Tên Map :  <strong>@ViewBag.mapName</strong> </a>
+             <a>Tên Map: <strong id="mapname">@ViewBag.mapName</strong> </a>
         </div>
 
         <div class="separator"></div>
@@ -55,7 +54,7 @@
                </div>
               <div class="button">
                      <img  class="btnKetQua" src="~/Content/images/btn/file-complete-icon.png" />
-                     <a href="#" class="btnKetQua">Kết quả</a>
+                     <a href="@Url.Action("Delete","MapOfUser",new {mapID=MapID})" class="btnKetQua">Xóa Map</a>
                </div>
               <div class="button">
                      <img  class="btnSave" src="~/Content/images/btn/3_disc.png" />
@@ -63,7 +62,7 @@
                </div>
              <div class="button">
                      <img  class="btnDowload" src="~/Content/images/btn/cloud_download.png" />
-                 <a href="@Url.Action("Index","MapOfUser",new {UserName=user })">Open</a>
+                 <a href="@Url.Action("Index","MapOfUser",new {UserName=user})">Open</a>
                    
                      
                </div>

@@ -147,28 +147,51 @@ function textareaLoadEngineT(conceptMap, options)
     $(".btnOpen").click(function (event) {
         conceptMap.loadFacts(this.value);
     });
-
+    $(".btnKetQua").click(function (event) {
+        conceptMap.loadFacts(this.value);
+    });
     $(".buttonS").addClass('deactivated');
 
     return data;
 };
 var flag = true;
-
+$(".btnKetQua").click(function (event) {
+    var levelID = $("#levelID").val();
+    var topicID = $("#topicID").val();
+    var conceptID=$("#ConceptID :selected").val();
+    var obj = { LevelID: levelID, TopicID: topicID, ConCeptID: conceptID };
+    $.ajax({
+        url: '/Topic/Result',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(obj),
+        success: function (stdata) {
+            var das = stdata.split("__");
+            for (var i = 0; i < das.length - 1; i++) {
+                var da = das[i].trim().split("|");
+                var tam = { concept1: da[0], relation: da[1], concept2: da[2], conceptid1: da[3], conceptid2: da[5], liID: da[4] };
+                data.push(tam);
+            }
+            $("#area").empty();
+            addCheckBox();
+        }
+    });
+});
 
 $(".btnSave").click(function (event) {
     if ($(this).hasClass('deactivated'))
     {
         e.preventDefault();
     }
-
     var links = [];
     for (var i = 0; i < data.length; i++) {
         links.push({ ConceptID1: data[i].conceptid1, ConceptID2: data[i].conceptid2, Text: data[i].relation, LinkID: data[i].liID })
     }
     var levelID = $("#levelID").val();
+    var conceptID = $("#conceptID").val();
     var mapName = prompt("Nhập tên concept map của bạn", "Concept Name");
     if (mapName != null) {
-        var obj = { links: links, mapName: mapName, LevelID: levelID };
+        var obj = { links: links, mapName: mapName, LevelID: levelID, ConceptID: conceptID };
         $.ajax({
             url: '/Topic/Save',
             type: 'POST',

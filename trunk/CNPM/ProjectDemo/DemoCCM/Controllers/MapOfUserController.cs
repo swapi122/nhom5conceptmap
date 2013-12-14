@@ -34,25 +34,49 @@ namespace DemoCCM.Controllers
             foreach (var l in lis)
                 data += l.cc1 + "|" + l.Text + "|" + l.cc2 + "|" + l.ccID1 + "|" + l.LinkID + "|" + l.ccID2 + "__";
             ViewBag.data = data;
+            ViewBag.MapID = MapID;
+            
             MapOfUser mapOfUser = db.MapOfUsers.FirstOrDefault(mu => mu.MapID.Equals(MapID));
 
-            Map m = getMap(mapOfUser.LevelID,"1");
-
+            Map m = getMap(mapOfUser.LevelID,mapOfUser.ConceptID);
+            ViewBag.levelID2 = mapOfUser.LevelID;
+            ViewBag.conceptID = mapOfUser.ConceptID;
             ViewBag.UserName = Session["UserName"];
 
             ViewBag.mapName = mapOfUser.MapName;
             return View(m);
         }
+        public ActionResult Delete(int mapID)
+        {
+            var lms = from l in db.LinkOfMaps
+                      where l.MapID.Equals(mapID)
+                      select l;
+            foreach (LinkOfMap lm in lms.ToList())
+            {
+                db.LinkOfMaps.Remove(lm);
+            }
+            db.MapOfUsers.Remove(db.MapOfUsers.Single(m => m.MapID.Equals(mapID)));
+            db.SaveChanges();
+            return View();
+        }
         [HttpPost]
-        public ActionResult Save(Link[] links, String mapName, String LevelID, String MapID)
+        public ActionResult Save(Link[] links, String mapName, String LevelID, String MapID,String ConceptID)
         {
             //String userName = Session["UserName"].ToString();
             String userName = "ngamap";
-            MapOfUser mu = db.MapOfUsers.First(m => m.MapID.Equals(MapID));
-            int mapID = mu.MapID;
+            int mapID = int.Parse(MapID);
+            MapOfUser mu = db.MapOfUsers.First(m => m.MapID.Equals(mapID));
             mu.MapName = mapName;
             mu.UserName = userName;
+            mu.ConceptID = ConceptID;
             mu.LevelID = LevelID;
+            var lms = from l in db.LinkOfMaps
+                      where l.MapID.Equals(mapID)
+                      select l;
+            foreach (LinkOfMap lm in lms.ToList())
+            {
+                db.LinkOfMaps.Remove(lm);
+            }
             for (int i = 0; i < links.Length; i++)
             {
                 Link li = links[i];

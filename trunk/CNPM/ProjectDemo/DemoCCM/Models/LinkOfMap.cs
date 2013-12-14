@@ -19,6 +19,5 @@ namespace DemoCCM.Models
         public int Stt { get; set; }
     
         public virtual Link Link { get; set; }
-        public virtual MapOfUser MapOfUser { get; set; }
     }
 }

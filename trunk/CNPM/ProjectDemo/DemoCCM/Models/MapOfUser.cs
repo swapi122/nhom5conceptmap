@@ -14,18 +14,13 @@ namespace DemoCCM.Models
     
     public partial class MapOfUser
     {
-        public MapOfUser()
-        {
-            this.LinkOfMaps = new HashSet<LinkOfMap>();
-        }
-    
         public int MapID { get; set; }
         public string MapName { get; set; }
         public string UserName { get; set; }
         public string LevelID { get; set; }
+        public string ConceptID { get; set; }
     
-        public virtual Level Level { get; set; }
-        public virtual ICollection<LinkOfMap> LinkOfMaps { get; set; }
+        public virtual ConceptAll ConceptAll { get; set; }
         public virtual User User { get; set; }
     }
 }

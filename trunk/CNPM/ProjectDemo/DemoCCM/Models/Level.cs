@@ -16,7 +16,6 @@ namespace DemoCCM.Models
     {
         public Level()
         {
-            this.MapOfUsers = new HashSet<MapOfUser>();
             this.TopicOfLevels = new HashSet<TopicOfLevel>();
         }
     
@@ -24,7 +23,6 @@ namespace DemoCCM.Models
         public string LevelName { get; set; }
         public string Description { get; set; }
     
-        public virtual ICollection<MapOfUser> MapOfUsers { get; set; }
         public virtual ICollection<TopicOfLevel> TopicOfLevels { get; set; }
     }
 }
