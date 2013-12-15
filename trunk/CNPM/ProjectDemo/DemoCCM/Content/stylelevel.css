@@ -1,7 +1,0 @@
-﻿@charset "utf-8";
-ul.nav_left li a.highlight,ul.nav_left li a.highlight_stay{
-	outline: none;
-	margin-right: -1px;
-	border-left: 8px solid #ffb609;
-	background: #fff;
- }
