@@ -1,0 +1,19 @@
+﻿
+@model IEnumerable<DemoCCM.Models.Link> 
+<div id="leftbox">
+    <h3>Liên Kết</h3>
+    <ul id="gallery2" class="gallery2 ui-helper-reset ui-helper-clearfix">
+    @foreach (var item in Model)
+     {
+        <li class="ui-widget-content ui-corner-tr">
+             @item.Text @item.LinkID @item.ConceptID1 @item.ConceptID2
+            
+       </li>
+      }
+        </ul>
+ </div>
+               
+               
+    
+
+ 
