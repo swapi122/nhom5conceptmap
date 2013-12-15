@@ -1,0 +1,17 @@
+﻿
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/app.css")
+    @Scripts.Render("~/Scripts/js")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>    	
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")
+        @RenderSection("scripts", required: false)
+        @RenderBody()
+ 
+</body>
+</html>

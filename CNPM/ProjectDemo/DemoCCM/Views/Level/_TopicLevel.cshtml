@@ -1,0 +1,28 @@
+﻿@model List<DemoCCM.Models.TopicOfLevel>
+@{
+    String a = "";   
+}
+    <div class="pict">
+@foreach (var e in Model){
+        a = e.Level.LevelName;
+        string name;
+        if (e.Topic.TopicImage == null)
+        {
+             name = "no_image.png";
+        }else {
+             name = e.Topic.TopicImage;
+        }
+        
+            <div class="item">
+                <a href="@Url.Action("Index","Topic",new{LevelID1=e.LevelID,topicId1=e.TopicID})">
+                    <img alt="@e.Topic.ToppicName"  src="~/Photos/concepts/@name" />
+                </a>
+                <h3>@e.Topic.ToppicName</h3>
+            </div>
+       
+    }
+    </div>  
+
+
+                
+                

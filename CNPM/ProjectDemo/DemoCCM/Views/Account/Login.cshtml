@@ -1,0 +1,52 @@
+﻿
+@model DemoCCM.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Login";
+    
+}
+@Styles.Render("~/Content/style.css")
+     
+
+<div id="login">
+    <h1>Đăng Nhập</h1>
+    
+            @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl},FormMethod.Post))
+            {
+                 @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+                 <div id="inputs">
+                   <p style="color:red">
+                    @Html.TextBoxFor(m=>m.UserName,new {placeholder="Username or Email"})
+                     @Html.ValidationMessageFor(m => m.UserName)</p>
+                     
+                       <p style="color:red">
+                    @Html.PasswordFor(m => m.Pass, new {placeholder="Password"})
+                   @Html.ValidationMessageFor(m => m.Pass)</p>
+
+                  </div>
+                
+                 <div id="actions">
+                    <div class="submit">
+                        <input type="submit" name="commit" value="Đăng nhập">
+                    </div>
+                     <div class="login-help">
+                        <p>Quên mật khẩu? <a href="index.html">Bấm vào đây</a></p>
+                    </div>
+                     @*
+                    <p class="remember_me">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </p>*@
+                </div>
+ 
+            }
+
+</div>
+    
+   
+        
+
+
+ 
+
